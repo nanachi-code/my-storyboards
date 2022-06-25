@@ -2,15 +2,15 @@
 	"scripts": {
 		"start": "nodemon index.ts --quiet"
 	},
-	"dependencies": {
-		"@osbjs/tiny-osbjs": "^1.5.0",
-		"@osbjs/txtgen-tiny-osbjs": "^1.0.2"
-	},
 	"devDependencies": {
 		"nodemon": "^2.0.18",
 		"prettier": "^2.7.1",
 		"prettier-plugin-organize-imports": "^3.0.0",
 		"ts-node": "^10.8.1",
 		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"@osbjs/tiny-osbjs": "^1.9.1",
+		"@osbjs/txtgen-tiny-osbjs": "^1.0.2"
 	}
 }

@@ -1,6 +1,6 @@
 import { createSprite, fade, scaleAtTime } from '@osbjs/tiny-osbjs'
 
-export default function BgBlur(
+export default function GlowingGirl(
 	startTime: number,
 	endTime: number,
 	additionalEffects?: () => void,
@@ -9,7 +9,7 @@ export default function BgBlur(
 	fadeOut: number = 0,
 	scale: number = 854 / 1920
 ) {
-	createSprite('sb/bg-blur.jpg', 'Background', 'Centre', { x: 320, y: 240 }, () => {
+	createSprite('sb/girl-glow.png', 'Background', 'Centre', { x: 320, y: 240 }, () => {
 		scaleAtTime(startTime, scale)
 		fade(startTime, startTime + fadeIn, 0, opacity)
 		fade(endTime - fadeOut, endTime, opacity, 0)
