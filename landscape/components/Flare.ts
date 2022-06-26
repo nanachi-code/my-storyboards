@@ -2,7 +2,7 @@ import { createSprite, degToRad, fade, Parameter, parameter, randFloat, rotate, 
 
 export default function Flare(startTime: number, endTime: number, fadeIn: number = 300, fadeOut: number = 300) {
 	createSprite('sb/flare.png', 'Background', 'Centre', { x: 320, y: 240 }, () => {
-		rotate(startTime, endTime, 0, degToRad(30))
+		rotate(startTime, endTime, 0, degToRad(10))
 		parameter(startTime, endTime, Parameter.AdditiveBlending)
 		scale(startTime, endTime, 0.45, 0.6)
 
