@@ -1,6 +1,7 @@
 import { colorAtTime, Easing, fade, moveX, moveY, randInt, scaleAtTime, scaleVec } from '@osbjs/tiny-osbjs'
 import { createText, getTexturePositionForAlignment, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import BgBlur from '../components/BgBlur'
+import DotParticles from '../components/DotParticles'
 import GlowingGirl from '../components/GlowingGirl'
 import Gradient from '../components/Gradient'
 import Letterbox from '../components/Letterbox'
@@ -40,7 +41,7 @@ export default function Verse1() {
 
 	Rect(
 		103861,
-		111017,
+		110701,
 		{ x: 0, y: 150 },
 		{ x: -107, y: 240 },
 		() => {
@@ -50,12 +51,12 @@ export default function Verse1() {
 	)
 
 	Rect(
-		111017,
-		111649,
+		110701,
+		111412,
 		{ x: 0, y: 150 },
 		{ x: 747, y: 240 },
 		() => {
-			scaleVec(111017, 111649, { x: 854, y: 150 }, { x: 0, y: 150 }, Easing.InSine)
+			scaleVec(110701, 111412, { x: 854, y: 150 }, { x: 0, y: 150 }, Easing.InSine)
 		},
 		'CentreRight'
 	)
@@ -82,7 +83,7 @@ function Lyrics1() {
 			},
 			{
 				text: 'is me',
-				startTime: 83335,
+				startTime: 82184,
 				endTime: 85144,
 			},
 		],
@@ -169,12 +170,12 @@ function Lyrics2() {
 		{
 			text: 'Memories ',
 			startTime: 105148,
-			endTime: 111649,
+			endTime: 110701,
 		},
 		{
 			text: 'are now thrown',
 			startTime: 107079,
-			endTime: 111649,
+			endTime: 110701,
 		},
 	]
 
@@ -185,12 +186,11 @@ function Lyrics2() {
 		lineWidth = measureLineWidth(line) * scale,
 		y = 240 - (measureLineHeight('M') * scale) / 2
 
-	let x = 320 - lineWidth / 2
-	let _endTime = 111649 - line.length * 30
+	let x = 320 - lineWidth / 2 
 
 	lyrics
 		.map(({ text, startTime, endTime }) => ({ text: text.replaceAll(' ', '    '), startTime, endTime }))
-		.forEach(({ text, startTime }) => {
+		.forEach(({ text, startTime, endTime }) => {
 			let _startTime = startTime
 
 			text.split('').forEach((letter) => {
@@ -198,18 +198,17 @@ function Lyrics2() {
 
 				createText(letter, 'Background', 'Centre', { x: 320, y: 240 }, ({ width, height }) => {
 					const correctPos = getTexturePositionForAlignment({ x, y }, 'Centre', width, height, scale)
-					moveX(startTime, _endTime, correctPos.x, correctPos.x + 10)
-					moveY(startTime, _endTime, correctPos.y, correctPos.y + yMove)
+					moveX(startTime, endTime, correctPos.x, correctPos.x + 10)
+					moveY(startTime, endTime, correctPos.y, correctPos.y + yMove)
 					scaleAtTime(_startTime, scale)
 					fade(_startTime, _startTime + fadeIn, 0, 1)
-					fade(_endTime - fadeOut, _endTime, 1, 0)
+					fade(endTime - fadeOut, endTime, 1, 0)
 					colorAtTime(_startTime, Pallete.Black)
 
 					x += width * scale
 				})
 
 				_startTime += 30
-				_endTime += 30
 			})
 		})
 }

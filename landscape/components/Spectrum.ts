@@ -14,6 +14,7 @@ export default function Spectrum(startTime: number, endTime: number) {
 	const margin = 2
 	const maxHeight = 120
 	const count = 64
+	const opacity = 0.1
 
 	let x = 320 - ((width + margin) * count) / 2
 
@@ -21,8 +22,8 @@ export default function Spectrum(startTime: number, endTime: number) {
 		const frames = spectrumFrames.map((frame) => frame[i])
 
 		createSprite('sb/bar.png', 'Background', 'Centre', { x, y: 240 }, () => {
-			fade(startTime, startTime + 300, 0, 0.2)
-			fade(endTime - 300, endTime, 0.2, 0)
+			fade(startTime, startTime + 300, 0, opacity)
+			fade(endTime - 300, endTime, opacity, 0)
 			colorAtTime(startTime, { r: 255, g: 255, b: 255 })
 			parameter(startTime, endTime, Parameter.AdditiveBlending)
 
