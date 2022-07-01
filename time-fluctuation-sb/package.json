@@ -1,0 +1,18 @@
+{
+  "name": "time-fluctuation",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "node index"
+  },
+  "type": "module",
+  "dependencies": {
+    "@osbjs/math": "^1.0.0-a",
+    "@osbjs/osbjs": "^1.11.0",
+    "@osbjs/txtgen": "^1.0.2",
+    "image-size": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "nodemon": "^2.0.15"
+  }
+}
