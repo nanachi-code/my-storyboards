@@ -1,0 +1,18 @@
+{
+	"name": "watch-blue",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "tsnode .",
+		"start": "nodemon --quiet index.ts"
+	},
+	"dependencies": {
+		"@osbjs/osbjs": "^2.1.7"
+	},
+	"devDependencies": {
+		"@tsconfig/node14": "^1.0.1",
+		"eslint": "^8.10.0",
+		"nodemon": "^2.0.15",
+		"ts-node": "^10.6.0",
+		"typescript": "^4.6.2"
+	}
+}
