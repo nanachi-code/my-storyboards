@@ -11,8 +11,8 @@
 	},
 	"dependencies": {
 		"@osbjs/hitobjects-tiny-osbjs": "^1.1.7",
-		"@osbjs/spectrum-tiny-osbjs": "^1.0.0",
+		"@osbjs/spectrum-tiny-osbjs": "^1.1.1",
 		"@osbjs/tiny-osbjs": "^1.12.0",
-		"@osbjs/txtgen-tiny-osbjs": "^1.0.3"
+		"@osbjs/txtgen-tiny-osbjs": "^1.2.1"
 	}
 }

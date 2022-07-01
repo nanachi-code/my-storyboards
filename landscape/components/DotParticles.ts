@@ -4,14 +4,14 @@ export default function DotParticles(startTime: number, endTime: number) {
 	const particleCount = 64
 	const fadeOut = 325
 	const opacity = 0.1
-	const lifeTime = 10000
+	const lifeTime = 12000
 	const timestep = Math.floor(lifeTime / particleCount)
 
 	for (let _startTime = startTime - lifeTime; _startTime <= endTime - fadeOut; _startTime += timestep) {
 		const _endTime = _startTime + lifeTime
-		const startPostion: Vector2 = { x: randInt(-107, 854), y: 0 }
-		const endPosition: Vector2 = { x: startPostion.x, y: 480 }
-		const scale = randFloat(0.2, 0.4)
+		const startPostion: Vector2 = { x: 500, y: 0 }
+		const endPosition: Vector2 = { x: randInt(-107, 854), y: randInt(240, 480) }
+		const scale = randFloat(0.2, 0.3)
 
 		createSprite('sb/d.png', 'Background', 'Centre', { x: 320, y: 240 }, () => {
 			if (_startTime < startTime) {

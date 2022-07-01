@@ -3,29 +3,28 @@ import { colorAtTime, createSprite, fade, Parameter, parameter, scaleVec } from 
 import { schemaPath } from '../config'
 import Pallete from '../utils/pallete'
 
-export default function Spectrum(startTime: number, endTime: number) {
+export default function GradientSpectrum(startTime: number, endTime: number) {
 	const { fps, spectrumFrames: _spectrumFrames } = loadSpectrumSchema(schemaPath)
 
 	const spectrumFrames = extractFrames(_spectrumFrames, startTime, endTime, fps)
 
-	const sprW = 17,
-		sprH = 22
+	const sprW = 854,
+		sprH = 480
 	const timestep = 1000 / fps
-	const width = 7
-	const margin = 2
-	const maxHeight = 120
+	const width = 854 / 64
+	const maxHeight = 160
 	const count = 64
-	const opacity = 0.1
+	const opacity = 0.3
 
-	let x = 320 - ((width + margin) * count) / 2
+	let x = -107
 
 	for (let i = 0; i < count; i++) {
 		const frames = spectrumFrames.map((frame) => frame[i])
 
-		createSprite('sb/bar.png', 'Background', 'Centre', { x, y: 240 }, () => {
+		createSprite('sb/grad.png', 'Background', 'BottomLeft', { x, y: 480 }, () => {
 			fade(startTime, startTime + 300, 0, opacity)
 			fade(endTime - 300, endTime, opacity, 0)
-			colorAtTime(startTime, Pallete.White)
+			colorAtTime(startTime, Pallete.OrchidPink)
 			parameter(startTime, endTime, Parameter.AdditiveBlending)
 
 			for (let j = 0; j < frames.length; j++) {
@@ -38,6 +37,6 @@ export default function Spectrum(startTime: number, endTime: number) {
 			}
 		})
 
-		x += width + 2
+		x += width
 	}
 }
