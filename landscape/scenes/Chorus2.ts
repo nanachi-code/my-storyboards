@@ -12,51 +12,51 @@ import { Lyric } from '../types/Lyric'
 import Pallete from '../utils/pallete'
 import { HinaMinchoOutlineContext } from '../utils/txtGenContext'
 
-export default function Chorus1() {
-	Bg2Blur(111649, 143153, undefined, 0.8)
-	DotParticles(111649, 143153)
-	GradientSpectrum(111649, 143153)
-	RingHighlight(111649, 143153)
+export default function Chorus2() {
+	Bg2Blur(186445, 217898, undefined, 0.8)
+	DotParticles(186445, 217898)
+	GradientSpectrum(186445, 217898)
+	RingHighlight(186445, 217898)
 	Lyrics1()
-	Flare(111649, 143153)
-	GlowingGirl2(111649, 143153, undefined, 1)
-	MonotoneBg(143153, 147067, Pallete.Black)
-	Flash(111649)
-	Flash(127415)
-	Flash(143153)
+	Flare(186445, 217898)
+	GlowingGirl2(186445, 217898, undefined, 1)
+	// MonotoneBg(143153, 147067, Pallete.Black)
+	Flash(186445)
+	Flash(202159)
+	Flash(217898)
 }
 
 function Lyrics1() {
 	const lyrics: Lyric[] = [
 		{
 			text: '息を忘れゆくほど',
-			startTime: 111649,
-			endTime: 115306,
+			startTime: 186445,
+			endTime: 190043,
 		},
 		{
 			text: '委ねる音にこの身を',
-			startTime: 115625,
-			endTime: 118580,
+			startTime: 190362,
+			endTime: 193633,
 		},
 		{
-			text: '絶え間ないように',
-			startTime: 118580,
-			endTime: 124461,
+			text: '遮るものも',
+			startTime: 193633,
+			endTime: 199211,
 		},
 		{
-			text: '紡いでいこう',
-			startTime: 125115,
-			endTime: 132358,
+			text: '飛び越えていこう',
+			startTime: 199869,
+			endTime: 208074,
 		},
 		{
-			text: '忘れないように',
-			startTime: 134321,
-			endTime: 140195,
+			text: '失くさないように',
+			startTime: 209063,
+			endTime: 214973,
 		},
 		{
-			text: 'あの光を',
-			startTime: 140846,
-			endTime: 143153,
+			text: 'この光を',
+			startTime: 215620,
+			endTime: 217898,
 		},
 	]
 

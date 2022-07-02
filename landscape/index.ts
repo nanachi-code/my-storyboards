@@ -3,6 +3,7 @@ import { clearOutputFolder } from '@osbjs/txtgen-tiny-osbjs'
 import { HideBg } from './components/Bg'
 import Vig from './components/Vig'
 import Chorus1 from './scenes/Chorus1'
+import Chorus2 from './scenes/Chorus2'
 import Intro from './scenes/Intro'
 import PreVerse1 from './scenes/PreVerse1'
 import Verse1 from './scenes/Verse1'
@@ -24,6 +25,7 @@ reportBuildTime(() => {
 		PreVerse1()
 		Verse1()
 		Chorus1()
+		Chorus2()
 	})
 
 	eject()
