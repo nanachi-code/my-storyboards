@@ -1,6 +1,7 @@
 {
 	"scripts": {
-		"start": "nodemon index.ts --quiet"
+		"start": "nodemon index.ts --quiet",
+		"build": "ts-node index.ts"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.18",

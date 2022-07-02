@@ -6,10 +6,8 @@ import Flare from '../components/Flare'
 import Flash from '../components/Flash'
 import GlowingGirl2 from '../components/GlowingGirl2'
 import GradientSpectrum from '../components/GradientSpectrum'
-import MonotoneBg from '../components/MonotoneBg'
 import RingHighlight from '../components/RingHighlight'
 import { Lyric } from '../types/Lyric'
-import Pallete from '../utils/pallete'
 import { HinaMinchoOutlineContext } from '../utils/txtGenContext'
 
 export default function Chorus2() {
@@ -20,7 +18,6 @@ export default function Chorus2() {
 	Lyrics1()
 	Flare(186445, 217898)
 	GlowingGirl2(186445, 217898, undefined, 1)
-	// MonotoneBg(143153, 147067, Pallete.Black)
 	Flash(186445)
 	Flash(202159)
 	Flash(217898)
@@ -75,7 +72,7 @@ function Lyrics1() {
 
 		text.split('').forEach((letter) => {
 			const y1 = yMain + 20
-			const y2 = yMain - speed * (startTime - endTime)
+			const y2 = yMain + speed * (endTime - startTime - travelTime * 2)
 			const y3 = y2 - 20
 
 			useTxtGenContext(HinaMinchoOutlineContext)
@@ -84,7 +81,7 @@ function Lyrics1() {
 				moveY(_startTime, _startTime + travelTime, y1, yMain, Easing.Out)
 				moveY(_startTime + travelTime, endTime - travelTime, yMain, y2)
 				moveY(_endTime - travelTime, _endTime, y2, y3, Easing.In)
-				fade(_startTime, _startTime + fadeTime, 0.5, 1)
+				fade(_startTime, _startTime + fadeTime, 0, 1)
 				fade(_endTime - fadeTime, _endTime, 1, 0)
 
 				x += width

@@ -75,7 +75,7 @@ function Lyrics1() {
 
 		text.split('').forEach((letter) => {
 			const y1 = yMain + 20
-			const y2 = yMain - speed * (startTime - endTime)
+			const y2 = yMain + speed * (endTime - startTime - travelTime * 2)
 			const y3 = y2 - 20
 
 			useTxtGenContext(HinaMinchoOutlineContext)
@@ -84,7 +84,7 @@ function Lyrics1() {
 				moveY(_startTime, _startTime + travelTime, y1, yMain, Easing.Out)
 				moveY(_startTime + travelTime, endTime - travelTime, yMain, y2)
 				moveY(_endTime - travelTime, _endTime, y2, y3, Easing.In)
-				fade(_startTime, _startTime + fadeTime, 0.5, 1)
+				fade(_startTime, _startTime + fadeTime, 0, 1)
 				fade(_endTime - fadeTime, _endTime, 1, 0)
 
 				x += width
