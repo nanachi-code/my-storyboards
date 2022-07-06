@@ -1,0 +1,59 @@
+﻿FormatVersion: 7
+Name: "Background 1"
+Script: "Background"
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  5f15315d610a4fba8deb3f463b35b42f:
+    Name: "background"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  794fada2e7ab4d35b5cd639bf4d7bbf4:
+    Name: "color-background"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  60188832914647d290ab42e179b7aae8:
+    Name: "undergrid"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  ad0aebb09f2640daa9dcd0c14401536f:
+    Name: "gridcolor"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  d0ba461c887e4a999587e8ea21941bed:
+    Name: "grid"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  b1ea488823de4008a7a92e560ef38f59:
+    Name: "gridring"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  39e3dcab2496441abc79e72163a30f60:
+    Name: "transition"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  e023261dd5314c6e81766dd09af1849b:
+    Name: "flash"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  72564f6fa4184162b00fef63ebe02508:
+    Name: "vig"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  8df30272b9c746fb8220dd1d3fc7c626:
+    Name: "logo"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
