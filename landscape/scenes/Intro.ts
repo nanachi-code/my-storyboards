@@ -16,10 +16,17 @@ export default function Intro() {
 
 	useTxtGenContext(HinaMinchoContext)
 
-	createText('「landscape」', 'Background', 'Centre', { x: 320, y: 320 }, (_) => {
-		fade(0, 304, 0, 1)
-		fade(908, 1512, 1, 0)
-		scaleAtTime(0, 0.5)
+	const t_landscape = 'landscape'
+	const landscapeWidth = measureLineWidth(t_landscape) * 0.5
+
+	let x = 320 - landscapeWidth / 2
+	t_landscape.split('').forEach((letter) => {
+		createText(letter, 'Background', 'TopLeft', { x, y: 320 }, ({ width }) => {
+			fade(0, 304, 0, 1)
+			fade(908, 1512, 1, 0)
+			scaleAtTime(0, 0.5)
+			x += width * 0.5
+		})
 	})
 
 	BgBlur(
@@ -76,14 +83,13 @@ function Lyrics() {
 		fadeIn = 150,
 		fadeOut = fadeIn
 
-	lyrics
-		.map(({ text, startTime, endTime }) => ({ text: text.replaceAll(' ', '   '), startTime, endTime }))
-		.forEach(({ text, startTime, endTime }) => {
-			const lineWidth = measureLineWidth(text) * scale
+	lyrics.forEach(({ text, startTime, endTime }) => {
+		const lineWidth = measureLineWidth(text) * scale
 
-			let x = 320 - lineWidth / 2
+		let x = 320 - lineWidth / 2
 
-			text.split('').forEach((letter) => {
+		text.split('').forEach((letter) => {
+			if (letter != ' ') {
 				createText(letter, 'Background', 'Centre', { x: 320, y: 240 }, ({ width, height }) => {
 					const correctPos = getTexturePositionForAlignment({ x, y: 425 }, 'Centre', width, height, scale)
 					moveAtTime(startTime, correctPos)
@@ -93,6 +99,9 @@ function Lyrics() {
 
 					x += width * scale
 				})
-			})
+			} else {
+				x += 5
+			}
 		})
+	})
 }

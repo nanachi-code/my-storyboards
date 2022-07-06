@@ -1,8 +1,6 @@
 import { colorAtTime, Easing, fade, moveX, moveY, randInt, scaleAtTime, scaleVec } from '@osbjs/tiny-osbjs'
 import { createText, getTexturePositionForAlignment, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import BgBlur from '../components/BgBlur'
-import DotParticles from '../components/DotParticles'
-import GlowingGirl from '../components/GlowingGirl'
 import Gradient from '../components/Gradient'
 import Letterbox from '../components/Letterbox'
 import Rect from '../components/Rect'
@@ -23,19 +21,7 @@ export default function Verse1() {
 		0.8
 	)
 
-	GlowingGirl(
-		72316,
-		103861,
-		() => {
-			moveY(72316, 103861, 40, 80)
-		},
-		0.8,
-		300,
-		300,
-		0.8
-	)
-
-	Letterbox(72316, 103861, 70)
+	Letterbox(72316, 103861)
 
 	Lyrics1()
 
@@ -127,33 +113,21 @@ function Lyrics1() {
 
 		let _x = x
 
-		text
-			.replaceAll(' ', '    ')
-			.split('')
-			.forEach((letter) => {
-				const __x = _x,
-					yMove = randInt(-4, 4)
-
-				createText(letter, 'Background', 'Centre', { x: 320, y: 240 }, ({ width, height }) => {
-					const correctPos = getTexturePositionForAlignment({ x: __x, y }, 'Centre', width, height, scale)
-					moveX(startTime, endTime, correctPos.x, correctPos.x + 10)
-					moveY(startTime, endTime, correctPos.y, correctPos.y + yMove)
+		text.split('').forEach((letter) => {
+			if (letter != ' ') {
+				createText(letter, 'Background', 'TopLeft', { x: 320, y: 240 }, ({ width }) => {
+					moveX(startTime, endTime, _x, _x + 10)
+					moveY(startTime, endTime, y, y + randInt(-4, 4))
 					scaleAtTime(startTime, scale)
 					fade(startTime, startTime + fadeIn, 0, 1)
 					fade(endTime - fadeOut, endTime, 1, 0)
 
 					_x += width * scale
 				})
-
-				createText(letter, 'Background', 'Centre', { x: 320, y: 240 }, ({ width, height }) => {
-					const correctPos = getTexturePositionForAlignment({ x: __x - 2, y: y + 2 }, 'Centre', width, height, scale)
-					moveX(startTime, endTime, correctPos.x, correctPos.x + 10)
-					moveY(startTime, endTime, correctPos.y, correctPos.y + yMove)
-					scaleAtTime(startTime, scale)
-					fade(startTime, startTime + fadeIn, 0, 0.3)
-					fade(endTime - fadeOut, endTime, 0.3, 0)
-				})
-			})
+			} else {
+				_x += 8
+			}
+		})
 	}
 
 	lyrics.forEach((lyric) => {
@@ -179,21 +153,20 @@ function Lyrics2() {
 		},
 	]
 
-	const line = 'Memories    are    now    thrown',
+	const line = 'Memoriesarenowthrown',
 		scale = 0.4,
 		fadeIn = 150,
 		fadeOut = fadeIn,
-		lineWidth = measureLineWidth(line) * scale,
+		lineWidth = measureLineWidth(line) * scale + 8 * 3,
 		y = 240 - (measureLineHeight('M') * scale) / 2
 
-	let x = 320 - lineWidth / 2 
+	let x = 320 - lineWidth / 2
 
-	lyrics
-		.map(({ text, startTime, endTime }) => ({ text: text.replaceAll(' ', '    '), startTime, endTime }))
-		.forEach(({ text, startTime, endTime }) => {
-			let _startTime = startTime
+	lyrics.forEach(({ text, startTime, endTime }) => {
+		let _startTime = startTime
 
-			text.split('').forEach((letter) => {
+		text.split('').forEach((letter) => {
+			if (letter != ' ') {
 				const yMove = randInt(-4, 4)
 
 				createText(letter, 'Background', 'Centre', { x: 320, y: 240 }, ({ width, height }) => {
@@ -209,6 +182,9 @@ function Lyrics2() {
 				})
 
 				_startTime += 30
-			})
+			} else {
+				x += 8
+			}
 		})
+	})
 }

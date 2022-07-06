@@ -14,6 +14,7 @@
 		"@osbjs/hitobjects-tiny-osbjs": "^1.1.7",
 		"@osbjs/spectrum-tiny-osbjs": "^1.1.1",
 		"@osbjs/tiny-osbjs": "^1.12.0",
-		"@osbjs/txtgen-tiny-osbjs": "^1.2.1"
+		"@osbjs/txtgen-tiny-osbjs": "^1.4.0",
+		"simplex-noise": "^3.0.1"
 	}
 }

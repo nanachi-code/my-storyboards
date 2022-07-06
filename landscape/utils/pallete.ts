@@ -4,10 +4,10 @@ const Pallete = {
 	Black: hexToRgb("#000000"),
 	White: hexToRgb("#FFFFFF"),
 	PinkLavender: hexToRgb('#CDB4DB'),
-	OrchidPink: hexToRgb('#FFC8DD'),
-	NadeshikoPink: hexToRgb('#FFAFCC'),
-	UranianBlue: hexToRgb('#BDE0FE'),
-	BabyBlueEyes: hexToRgb('#A2D2FF'),
+	Lilac: hexToRgb('#BE95C4'),
+	PurpleMountainMajesty: hexToRgb('#9F86C0'),
+	PurpleNavy: hexToRgb('#5E548E'),
+	RussianViolet: hexToRgb('#231942'),
 }
 
 export default Pallete

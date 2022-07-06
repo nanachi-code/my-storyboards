@@ -24,7 +24,7 @@ export default function GradientSpectrum(startTime: number, endTime: number) {
 		createSprite('sb/grad.png', 'Background', 'BottomLeft', { x, y: 480 }, () => {
 			fade(startTime, startTime + 300, 0, opacity)
 			fade(endTime - 300, endTime, opacity, 0)
-			colorAtTime(startTime, Pallete.OrchidPink)
+			colorAtTime(startTime, Pallete.PinkLavender)
 			parameter(startTime, endTime, Parameter.AdditiveBlending)
 
 			for (let j = 0; j < frames.length; j++) {

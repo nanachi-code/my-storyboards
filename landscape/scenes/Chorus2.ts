@@ -4,20 +4,26 @@ import Bg2Blur from '../components/Bg2Blur'
 import DotParticles from '../components/DotParticles'
 import Flare from '../components/Flare'
 import Flash from '../components/Flash'
-import GlowingGirl2 from '../components/GlowingGirl2'
 import GradientSpectrum from '../components/GradientSpectrum'
 import RingHighlight from '../components/RingHighlight'
+import { wigglePosition } from '../expressions/wiggle'
 import { Lyric } from '../types/Lyric'
 import { HinaMinchoOutlineContext } from '../utils/txtGenContext'
 
 export default function Chorus2() {
-	Bg2Blur(186445, 217898, undefined, 0.8)
+	Bg2Blur(
+		186445,
+		217898,
+		() => {
+			wigglePosition(186445, 217898, 1 / 3, 10)
+		},
+		0.8
+	)
 	DotParticles(186445, 217898)
 	GradientSpectrum(186445, 217898)
 	RingHighlight(186445, 217898)
 	Lyrics1()
 	Flare(186445, 217898)
-	GlowingGirl2(186445, 217898, undefined, 1)
 	Flash(186445)
 	Flash(202159)
 	Flash(217898)
