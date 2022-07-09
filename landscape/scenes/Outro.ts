@@ -2,12 +2,10 @@ import { fade, scaleAtTime } from '@osbjs/tiny-osbjs'
 import { createText, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Bg from '../components/Bg'
 import GlitchTransition from '../components/GlitchTransition'
-import Letterbox from '../components/Letterbox'
 import { SazanamiMinchoContext } from '../utils/txtGenContext'
 
 export default function Outro() {
 	Bg(343820, 361954, 0.7, 0)
-	Letterbox(343820, 361954)
 	GlitchTransition(343820, 0.7)
 	GlitchTransition(361456, 0.7)
 
