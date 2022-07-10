@@ -1,6 +1,7 @@
 import { fade, scaleAtTime } from '@osbjs/tiny-osbjs'
 import { createText, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Bg from '../components/Bg'
+import Flash from '../components/Flash'
 import GlitchTransition from '../components/GlitchTransition'
 import { AuthenticContext, SazanamiMinchoContext } from '../utils/txtGenContext'
 
@@ -17,6 +18,8 @@ export default function Outro() {
 	Credit('Hitsound: Nagaraia', 355048, 356971)
 	Credit('Special thanks: Perell L.Brown @dreamybullxxx', 357363, 359286)
 	Logo()
+
+	Flash(343820)
 }
 
 function Credit(line: string, startTime: number, endTime: number) {

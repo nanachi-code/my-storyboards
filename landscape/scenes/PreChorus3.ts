@@ -11,7 +11,7 @@ export default function PreChorus3() {
 }
 
 function TransitionEnd() {
-	function RotateFrame(startTime: number, endTime: number, size: number, startAngle: number) {
+	function RotatingSqr(startTime: number, endTime: number, size: number, startAngle: number) {
 		Rect(startTime, 284303, { x: size, y: size }, { x: 320, y: 240 }, () => {
 			rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + 22.5), Easing.Out)
 			colorAtTime(startTime, Pallete.Black)
@@ -21,16 +21,16 @@ function TransitionEnd() {
 		})
 	}
 
-	RotateFrame(283654, 284140, 420, 90)
-	RotateFrame(283168, 283654, 280, 67.5)
-	RotateFrame(282668, 283168, 160, 45)
-	RotateFrame(282168, 282668, 80, 22.5)
+	RotatingSqr(283654, 284140, 420, 90)
+	RotatingSqr(283168, 283654, 280, 67.5)
+	RotatingSqr(282668, 283168, 160, 45)
+	RotatingSqr(282168, 282668, 80, 22.5)
 
 	function Lyrics() {
 		useTxtGenContext(SazanamiMinchoContext)
 
 		const text = '出逢え'
-		const scale = 0.5
+		const scale = 0.4
 		const lineW = measureLineWidth(text) * scale
 		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * scale
 		const padding = 2

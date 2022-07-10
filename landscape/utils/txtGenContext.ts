@@ -12,7 +12,7 @@ export const SazanamiMinchoContext = createTxtGenContext('sb/lyrics/SazanamiMinc
 	padding: { top: 0, bottom: 0, left: 0, right: 0 },
 })
 
-export const SazanamiMinchoOutlineContext = createTxtGenContext('sb/lyrics/SazanamiMinchoOutline', beatmapFolder, {
+export const SazanamiMinchoBigContext = createTxtGenContext('sb/lyrics/SazanamiMinchoBig', beatmapFolder, {
 	name: 'SazanamiMincho',
 	size: 144,
 	color: Pallete.White,

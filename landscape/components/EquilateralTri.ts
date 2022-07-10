@@ -1,16 +1,16 @@
 import { createSprite, fadeAtTime, Layer, Origin, scaleAtTime, Vector2 } from '@osbjs/tiny-osbjs'
 
-export default function Circ(
+export default function EquilateralTri(
 	startTime: number,
 	endTime: number,
-	diameter: number,
+	sideLength: number,
 	position: Vector2,
 	additionalEffects?: () => void,
-	origin: Origin = 'Centre',
-	layer: Layer = 'Background'
+	layer: Layer = 'Background',
+	origin: Origin = 'Centre'
 ) {
-	createSprite('sb/circ.png', layer, origin, position, () => {
-		scaleAtTime(startTime, diameter / 800)
+	createSprite('sb/tri.png', layer, origin, position, () => {
+		scaleAtTime(startTime, sideLength / 600)
 		fadeAtTime(startTime, 1)
 		fadeAtTime(endTime, 0)
 		if (additionalEffects) additionalEffects()

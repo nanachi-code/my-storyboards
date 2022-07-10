@@ -1,8 +1,8 @@
-import { colorAtTime } from '@osbjs/tiny-osbjs'
+import { Color, colorAtTime } from '@osbjs/tiny-osbjs'
 import Pallete from '../utils/pallete'
 import Rect from './Rect'
 
-export default function Letterbox(startTime: number, endTime: number) {
+export default function Letterbox(startTime: number, endTime: number, color: Color = Pallete.Black) {
 	const barDimensions = { x: 854, y: 70 }
 
 	Rect(
@@ -11,7 +11,7 @@ export default function Letterbox(startTime: number, endTime: number) {
 		barDimensions,
 		{ x: 320, y: 0 },
 		() => {
-			colorAtTime(startTime, Pallete.Black)
+			colorAtTime(startTime, color)
 		},
 		'TopCentre'
 	)
@@ -22,7 +22,7 @@ export default function Letterbox(startTime: number, endTime: number) {
 		barDimensions,
 		{ x: 320, y: 480 },
 		() => {
-			colorAtTime(startTime, Pallete.Black)
+			colorAtTime(startTime, color)
 		},
 		'BottomCentre'
 	)

@@ -5,17 +5,18 @@ import Vig from './components/Vig'
 import Chorus3 from './scenes/Chorus3'
 import Intro from './scenes/Intro'
 import Outro from './scenes/Outro'
+import PostChorus3 from './scenes/PostChorus3'
 import PreChorus3 from './scenes/PreChorus3'
 import eject from './utils/eject'
 import reportBuildTime from './utils/reportBuildTime'
-import { AuthenticContext, SazanamiMinchoContext, SazanamiMinchoOutlineContext } from './utils/txtGenContext'
+import { AuthenticContext, SazanamiMinchoContext, SazanamiMinchoBigContext } from './utils/txtGenContext'
 
 reportBuildTime(() => {
 	useContext(createContext())
 	warnsEmptyObjects()
 
 	clearOutputFolder(SazanamiMinchoContext)
-	clearOutputFolder(SazanamiMinchoOutlineContext)
+	clearOutputFolder(SazanamiMinchoBigContext)
 	clearOutputFolder(AuthenticContext)
 
 	HideBg(() => {
@@ -23,6 +24,7 @@ reportBuildTime(() => {
 			Intro()
 			PreChorus3()
 			Chorus3()
+			PostChorus3()
 			Outro()
 		})
 	})
