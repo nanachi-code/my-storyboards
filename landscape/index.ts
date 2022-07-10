@@ -8,14 +8,14 @@ import Outro from './scenes/Outro'
 import PreChorus3 from './scenes/PreChorus3'
 import eject from './utils/eject'
 import reportBuildTime from './utils/reportBuildTime'
-import { AuthenticContext, SazanamiMinchoContext } from './utils/txtGenContext'
+import { AuthenticContext, SazanamiMinchoContext, SazanamiMinchoOutlineContext } from './utils/txtGenContext'
 
 reportBuildTime(() => {
 	useContext(createContext())
 	warnsEmptyObjects()
 
 	clearOutputFolder(SazanamiMinchoContext)
-	// clearOutputFolder(HanaMinchoOutlineContext)
+	clearOutputFolder(SazanamiMinchoOutlineContext)
 	clearOutputFolder(AuthenticContext)
 
 	HideBg(() => {

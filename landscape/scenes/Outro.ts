@@ -2,7 +2,7 @@ import { fade, scaleAtTime } from '@osbjs/tiny-osbjs'
 import { createText, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Bg from '../components/Bg'
 import GlitchTransition from '../components/GlitchTransition'
-import { SazanamiMinchoContext } from '../utils/txtGenContext'
+import { AuthenticContext, SazanamiMinchoContext } from '../utils/txtGenContext'
 
 export default function Outro() {
 	Bg(343820, 361954, 0.7, 0)
@@ -16,7 +16,7 @@ export default function Outro() {
 	Credit('Map: Laquarius', 352784, 354668)
 	Credit('Hitsound: Nagaraia', 355048, 356971)
 	Credit('Special thanks: Perell L.Brown @dreamybullxxx', 357363, 359286)
-	Credit('Thanks for playing!', 359670, 361954)
+	Logo()
 }
 
 function Credit(line: string, startTime: number, endTime: number) {
@@ -44,5 +44,17 @@ function Credit(line: string, startTime: number, endTime: number) {
 		} else {
 			x += spaceW
 		}
+	})
+}
+
+function Logo() {
+	const startTime = 359670,
+		endTime = 361954
+
+	useTxtGenContext(AuthenticContext)
+
+	createText('afloat storage', 'Background', 'Centre', { x: 320, y: 240 }, () => {
+		fade(startTime, startTime + 300, 0, 1)
+		fade(endTime - 300, endTime, 1, 0)
 	})
 }
