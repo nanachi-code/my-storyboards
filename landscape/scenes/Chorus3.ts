@@ -244,7 +244,7 @@ function FirstHalf() {
 			text.split('').forEach((letter) => {
 				createText(letter, 'Background', 'CentreLeft', { x, y }, ({ width }) => {
 					fade(startTime, 295282, 1, 1)
-					moveY(startTime, startTime + 300, 260, 240, Easing.OutCirc)
+					moveY(startTime, 295282, 260, 240, Easing.OutCirc)
 					x += width
 				})
 				startTime += 50
@@ -600,7 +600,7 @@ function SecondHalf() {
 			text.split('').forEach((letter) => {
 				createText(letter, 'Background', 'CentreLeft', { x, y }, ({ width }) => {
 					fade(startTime, 316222, 1, 1)
-					moveY(startTime, startTime + 300, 260, 240, Easing.OutCirc)
+					moveY(startTime, 316222, 260, 240, Easing.OutCirc)
 					x += width
 				})
 				startTime += 50

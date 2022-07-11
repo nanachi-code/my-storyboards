@@ -1,5 +1,6 @@
 import { extractFrames, loadSpectrumSchema } from '@osbjs/spectrum-tiny-osbjs'
 import {
+	addVec,
 	colorAtTime,
 	createSprite,
 	degToRad,
@@ -7,13 +8,16 @@ import {
 	fade,
 	fadeAtTime,
 	moveX,
+	mulVecScalar,
 	Parameter,
 	parameter,
 	rotate,
+	rotateAtTime,
 	scaleAtTime,
 	scaleVec,
 } from '@osbjs/tiny-osbjs'
 import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
+import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
 import DotGrid from '../components/DotGrid'
 import Flash from '../components/Flash'
@@ -24,6 +28,7 @@ import { AuthenticContext, SazanamiMinchoBigContext, SazanamiMinchoContext } fro
 
 export default function PreChorus3() {
 	Main()
+	TransitionMid()
 	TransitionEnd()
 }
 
@@ -138,6 +143,48 @@ function Main() {
 	Girl()
 	Flash(263646)
 	Flash(274123)
+}
+
+function TransitionMid() {
+	function GirlW() {
+		createSprite('sb/girlw.png', 'Background', 'Centre', { x: 330, y: 240 }, () => {
+			fade(273639, 274123, 1, 1)
+			scaleAtTime(273639, 0.15)
+		})
+	}
+
+	function SurroundingSqrs() {
+		const count = 12
+		const stepAngle = degToRad(360 / count)
+		const timeStep = 40
+		const endTime = 274123
+		const radius = 135
+		const size = 15
+		const origin = { x: 320, y: 240 }
+
+		let angle = 0,
+			startTime = 273639
+
+		for (let i = 0; i < count; i++) {
+			let position = addVec(origin, mulVecScalar({ x: Math.sin(angle), y: -Math.cos(angle) }, radius))
+
+			Rect(startTime, endTime, { x: 0, y: 0 }, position, () => {
+				scaleVec(startTime, endTime, { x: 0, y: 0 }, { x: size, y: size }, Easing.Out)
+				rotateAtTime(startTime, angle + degToRad(45))
+				colorAtTime(startTime, Pallete.Lilac)
+			})
+
+			angle += stepAngle
+			startTime += timeStep
+		}
+	}
+
+	ColorBg(273639, 274123, Pallete.White)
+	Circ(273639, 274123, 190, { x: 320, y: 240 }, () => {
+		colorAtTime(273639, Pallete.Lilac)
+	})
+	GirlW()
+	SurroundingSqrs()
 }
 
 function TransitionEnd() {
