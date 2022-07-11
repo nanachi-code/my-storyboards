@@ -160,7 +160,7 @@ function FirstHalf() {
 			useTxtGenContext(SazanamiMinchoBigContext)
 			const text = '稲見繭'
 
-			let x = 640,
+			let x = 700,
 				y = 0
 
 			text.split('').forEach((letter) => {
@@ -176,7 +176,7 @@ function FirstHalf() {
 		createSprite('sb/girl.png', 'Background', 'TopCentre', { x: 120, y: -250 }, () => {
 			fade(330694, 332342, 1, 1)
 			scaleAtTime(330694, 2)
-			moveX(330694, 332342, 120, 110)
+			moveX(330694, 332342, 120, 115)
 			parameter(330694, 332342, Parameter.FlipHorizontal)
 		})
 
