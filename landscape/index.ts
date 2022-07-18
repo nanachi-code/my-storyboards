@@ -1,5 +1,5 @@
 import { createContext, reportBuildTime, useContext, warnsEmptyObjects } from '@osbjs/tiny-osbjs'
-import { clearOutputFolder, ejectAllTextImages } from '@osbjs/txtgen-tiny-osbjs'
+import { clearOutputFolder } from '@osbjs/txtgen-tiny-osbjs'
 import HideBg from './components/HideBg'
 import Vig from './components/Vig'
 import Chorus3 from './scenes/Chorus3'
