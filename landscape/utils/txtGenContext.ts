@@ -8,20 +8,20 @@ useFont('./AuthenticSignature.otf', 'AuthenticSignature')
 export const SazanamiMinchoContext = createTxtGenContext('sb/lyrics/SazanamiMincho', beatmapFolder, {
 	name: 'SazanamiMincho',
 	size: 72,
-	color: Pallete.White,
+	isItalic: false,
 	padding: { top: 0, bottom: 0, left: 0, right: 0 },
 })
 
 export const SazanamiMinchoBigContext = createTxtGenContext('sb/lyrics/SazanamiMinchoBig', beatmapFolder, {
 	name: 'SazanamiMincho',
 	size: 144,
-	color: Pallete.White,
+	isItalic: false,
 	padding: { top: 0, bottom: 0, left: 0, right: 0 },
 })
 
 export const AuthenticContext = createTxtGenContext('sb/lyrics/authentic', beatmapFolder, {
 	name: 'AuthenticSignature',
 	size: 72,
-	color: Pallete.White,
+	isItalic: false,
 	padding: { top: 0, bottom: 0, left: 0, right: 0 },
 })

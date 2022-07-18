@@ -1,5 +1,5 @@
-import { createContext, useContext, warnsEmptyObjects } from '@osbjs/tiny-osbjs'
-import { clearOutputFolder } from '@osbjs/txtgen-tiny-osbjs'
+import { createContext, reportBuildTime, useContext, warnsEmptyObjects } from '@osbjs/tiny-osbjs'
+import { clearOutputFolder, ejectAllTextImages } from '@osbjs/txtgen-tiny-osbjs'
 import HideBg from './components/HideBg'
 import Vig from './components/Vig'
 import Chorus3 from './scenes/Chorus3'
@@ -8,10 +8,9 @@ import Outro from './scenes/Outro'
 import PostChorus3 from './scenes/PostChorus3'
 import PreChorus3 from './scenes/PreChorus3'
 import eject from './utils/eject'
-import reportBuildTime from './utils/reportBuildTime'
 import { AuthenticContext, SazanamiMinchoContext, SazanamiMinchoBigContext } from './utils/txtGenContext'
 
-reportBuildTime(() => {
+reportBuildTime((end) => {
 	useContext(createContext())
 	warnsEmptyObjects()
 
@@ -29,5 +28,5 @@ reportBuildTime(() => {
 		})
 	})
 
-	eject()
+	eject(end)
 })
