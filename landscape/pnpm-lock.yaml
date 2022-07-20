@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@osbjs/spectrum-tiny-osbjs': ^1.4.0
-  '@osbjs/tiny-osbjs': ^3.0.0
+  '@osbjs/tiny-osbjs': 3.0.1
   '@osbjs/txtgen-tiny-osbjs': ^2.2.0
   '@types/node': ^18.0.3
   prettier: ^2.7.1
@@ -12,8 +12,8 @@ specifiers:
 
 dependencies:
   '@osbjs/spectrum-tiny-osbjs': 1.4.0
-  '@osbjs/tiny-osbjs': 3.0.0
-  '@osbjs/txtgen-tiny-osbjs': 2.2.0_@osbjs+tiny-osbjs@3.0.0
+  '@osbjs/tiny-osbjs': 3.0.1
+  '@osbjs/txtgen-tiny-osbjs': 2.2.0_@osbjs+tiny-osbjs@3.0.1
 
 devDependencies:
   '@types/node': 18.0.6
@@ -83,16 +83,16 @@ packages:
       - supports-color
     dev: false
 
-  /@osbjs/tiny-osbjs/3.0.0:
-    resolution: {integrity: sha512-AfLQUJAjo+IC17ri0gF+Kl9/a8brTVqowlv2CYy7HpevfX2egNmDisD6te3oLX33oYfrZzx69B7xfWZ5Ny5+Jg==}
+  /@osbjs/tiny-osbjs/3.0.1:
+    resolution: {integrity: sha512-40AHwGRTwPf8oR9/7SUGydxkCPVkZZNzn8ekFYI8is/erZ5ab0LOoIJ1ld2Qr7yLw8vLUr4H816O6xFY4roZVQ==}
     dev: false
 
-  /@osbjs/txtgen-tiny-osbjs/2.2.0_@osbjs+tiny-osbjs@3.0.0:
+  /@osbjs/txtgen-tiny-osbjs/2.2.0_@osbjs+tiny-osbjs@3.0.1:
     resolution: {integrity: sha512-Y7JXN+cQAEl5JB4lOHdbUkWF2eTDmuCuiu9w0nLaOwpt5HPKPGUo59lTvq70YnDgHPGQQ34uO+bnpqdvDsNODQ==}
     peerDependencies:
       '@osbjs/tiny-osbjs': ^3.0.0
     dependencies:
-      '@osbjs/tiny-osbjs': 3.0.0
+      '@osbjs/tiny-osbjs': 3.0.1
       canvas: 2.9.3
       fs-extra: 10.1.0
     transitivePeerDependencies:

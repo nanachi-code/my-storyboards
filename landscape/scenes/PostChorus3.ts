@@ -10,7 +10,6 @@ import {
 	moveX,
 	moveY,
 	Origin,
-	Parameter,
 	rotate,
 	scale,
 	scaleVec,
@@ -36,7 +35,7 @@ export default function PostChorus3() {
 function Break(startTime: number, endTime: number) {
 	function GirlW() {
 		createSprite('sb/girlw.png', Layer.Background, Origin.Centre, [330, 240], () => {
-			fade([startTime, endTime], 1, 1)
+			fade([startTime, endTime], 1)
 			scale(startTime, 0.15)
 			color(startTime, Pallete.Lilac)
 		})
@@ -316,8 +315,8 @@ function SecondHalf() {
 		})
 
 		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-50, 200], () => {
-			fade(337250, 338889, 1, 1)
-			moveX(337250, 338889, -50, -45)
+			fade([337250, 338889], 1)
+			moveX([337250, 338889], -50, -45)
 			scale(337250, 0.5)
 			flipVertical([337250, 338889])
 			flipHorizontal([337250, 338889])

@@ -39,8 +39,8 @@ function Credit(line: string, startTime: number, endTime: number) {
 		if (letter != ' ') {
 			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
 				scale(startTime, _scale)
-				fade(startTime, startTime + fadeIn, 0, 1)
-				fade(endTime - fadeOut, endTime, 1, 0)
+				fade([startTime, startTime + fadeIn], 0, 1)
+				fade([endTime - fadeOut, endTime], 1, 0)
 
 				x += width * _scale
 			})
@@ -57,7 +57,7 @@ function Logo() {
 	useTxtGenContext(AuthenticContext)
 
 	createText('afloat storage', Layer.Background, Origin.Centre, [320, 240], () => {
-		fade(startTime, startTime + 300, 0, 1)
-		fade(endTime - 300, endTime, 1, 0)
+		fade([startTime, startTime + 300], 0, 1)
+		fade([endTime - 300, endTime], 1, 0)
 	})
 }

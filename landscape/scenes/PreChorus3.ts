@@ -66,8 +66,8 @@ function Main() {
 
 	function Girl() {
 		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-200, 600], () => {
-			fade(263646, 282168, 1, 1)
-			moveX(263646, 282168, -200, -170)
+			fade([263646, 282168], 1, 1)
+			moveX([263646, 282168], -200, -170)
 			flipHorizontal([263646, 282168])
 			scale(263646, 0.8)
 		})
@@ -82,7 +82,7 @@ function Main() {
 
 		text.split('').forEach((letter) => {
 			createOutlineText(letter, Layer.Background, Origin.TopRight, [x, y], ({ height }) => {
-				fade(263646, 282168, 0.5, 0.5)
+				fade([263646, 282168], 0.5, 0.5)
 				y += height
 			})
 		})
@@ -100,7 +100,7 @@ function Main() {
 
 		text.split('').forEach((letter) => {
 			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
-				fade(263646, 282168, 1, 1)
+				fade([263646, 282168], 1)
 				color(263646, Pallete.Lilac)
 				scale(263646, scaleFactor)
 				x += width * scaleFactor
@@ -115,7 +115,7 @@ function Main() {
 		const scaleFactor = 0.6
 
 		createText(text, Layer.Background, Origin.CentreRight, [700, 445], () => {
-			fade(263646, 282168, 1, 1)
+			fade([263646, 282168], 1)
 			color(263646, Pallete.Lilac)
 			scale(263646, scaleFactor)
 		})
@@ -136,7 +136,7 @@ function Main() {
 function TransitionMid() {
 	function GirlW() {
 		createSprite('sb/girlw.png', Layer.Background, Origin.Centre, [330, 240], () => {
-			fade(273639, 274123, 1, 1)
+			fade([273639, 274123], 1, 1)
 			scale(273639, 0.15)
 		})
 	}

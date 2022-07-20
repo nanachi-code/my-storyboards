@@ -260,7 +260,7 @@ function FirstHalf() {
 			createSprite('sb/girl.png', Layer.Background, Origin.TopCentre, [120, -250], () => {
 				fade([295282, 304149], 1)
 				scale(295282, 2)
-				moveX(295282, 304149, 120, 100)
+				moveX([295282, 304149], 120, 100)
 				flipHorizontal([295282, 304149])
 			})
 		}
@@ -612,9 +612,9 @@ function SecondHalf() {
 	function Lyrics4() {
 		function Girl() {
 			createSprite('sb/girl.png', Layer.Background, Origin.TopCentre, [120, -250], () => {
-				fade(316222, 324145, 1, 1)
+				fade([316222, 324145], 1, 1)
 				scale(316222, 2)
-				moveX(316222, 324145, 120, 100)
+				moveX([316222, 324145], 120, 100)
 				flipHorizontal([316222, 324145])
 			})
 		}

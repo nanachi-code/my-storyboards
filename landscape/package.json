@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@osbjs/spectrum-tiny-osbjs": "^1.4.0",
-		"@osbjs/tiny-osbjs": "^3.0.0",
+		"@osbjs/tiny-osbjs": "3.0.1",
 		"@osbjs/txtgen-tiny-osbjs": "^2.2.0"
 	}
 }
