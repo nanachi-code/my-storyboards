@@ -1,15 +1,15 @@
-import { createSprite, fade, scaleAtTime } from '@osbjs/tiny-osbjs'
+import { createSprite, fade, Layer, Origin, scale } from '@osbjs/tiny-osbjs'
 export default function Bg(
 	startTime: number,
 	endTime: number,
 	opacity: number = 1,
 	fadeIn: number = 300,
 	fadeOut: number = 300,
-	scale: number = 854 / 1920
+	scaleFactor: number = 854 / 1920
 ) {
-	createSprite('bg.jpg', 'Background', 'Centre', { x: 320, y: 240 }, () => {
-		fade(startTime, startTime + fadeIn, 0, opacity)
-		fade(endTime - fadeOut, endTime, opacity, 0)
-		scaleAtTime(startTime, scale)
+	createSprite('bg.jpg', Layer.Background, Origin.Centre, [320, 240], () => {
+		fade([startTime, startTime + fadeIn], 0, opacity)
+		fade([endTime - fadeOut, endTime], opacity, 0)
+		scale(startTime, scaleFactor)
 	})
 }

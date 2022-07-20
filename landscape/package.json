@@ -13,8 +13,8 @@
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
-		"@osbjs/spectrum-tiny-osbjs": "^1.2.0",
-		"@osbjs/tiny-osbjs": "^1.13.2",
-		"@osbjs/txtgen-tiny-osbjs": "^2.0.1"
+		"@osbjs/spectrum-tiny-osbjs": "^1.4.0",
+		"@osbjs/tiny-osbjs": "^3.0.0",
+		"@osbjs/txtgen-tiny-osbjs": "^2.2.0"
 	}
 }

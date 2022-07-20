@@ -1,4 +1,4 @@
-import { fade, scaleAtTime } from '@osbjs/tiny-osbjs'
+import { fade, Layer, Origin, scale } from '@osbjs/tiny-osbjs'
 import { createText, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Bg from '../components/Bg'
 import Flash from '../components/Flash'
@@ -27,22 +27,22 @@ function Credit(line: string, startTime: number, endTime: number) {
 
 	const spaceCount = (line.match(/ /g) || []).length
 	const spaceW = 5
-	const scale = 0.3
+	const _scale = 0.3
 	const fadeIn = 300
 	const fadeOut = 300
-	const lineW = measureLineWidth(line) * scale + spaceCount * spaceW
+	const lineW = measureLineWidth(line) * _scale + spaceCount * spaceW
 
 	let x = 320 - lineW / 2,
 		y = 210
 
 	line.split('').forEach((letter) => {
 		if (letter != ' ') {
-			createText(letter, 'Background', 'TopLeft', { x, y }, ({ width }) => {
-				scaleAtTime(startTime, scale)
+			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
+				scale(startTime, _scale)
 				fade(startTime, startTime + fadeIn, 0, 1)
 				fade(endTime - fadeOut, endTime, 1, 0)
 
-				x += width * scale
+				x += width * _scale
 			})
 		} else {
 			x += spaceW
@@ -56,7 +56,7 @@ function Logo() {
 
 	useTxtGenContext(AuthenticContext)
 
-	createText('afloat storage', 'Background', 'Centre', { x: 320, y: 240 }, () => {
+	createText('afloat storage', Layer.Background, Origin.Centre, [320, 240], () => {
 		fade(startTime, startTime + 300, 0, 1)
 		fade(endTime - 300, endTime, 1, 0)
 	})

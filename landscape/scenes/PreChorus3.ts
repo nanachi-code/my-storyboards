@@ -1,20 +1,20 @@
 import { extractFrames, loadSpectrumSchema } from '@osbjs/spectrum-tiny-osbjs'
 import {
 	addVec,
-	colorAtTime,
+	color,
 	createSprite,
 	degToRad,
 	Easing,
 	fade,
-	fadeAtTime,
+	flipHorizontal,
+	Layer,
 	moveX,
 	mulVecScalar,
-	Parameter,
-	parameter,
+	Origin,
 	rotate,
-	rotateAtTime,
-	scaleAtTime,
+	scale,
 	scaleVec,
+	Vector2,
 } from '@osbjs/tiny-osbjs'
 import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Circ from '../components/Circ'
@@ -46,29 +46,17 @@ function Main() {
 		let x = 700,
 			y = 363
 
-		Rect(
-			263646,
-			282168,
-			{ x: barCount * width + margin * (barCount - 1) + 2 * 10, y: maxHeight + 2 * 10 },
-			{ x: x + 10, y: y + 10 },
-			undefined,
-			'BottomRight'
-		)
+		Rect(263646, 282168, [barCount * width + margin * (barCount - 1) + 2 * 10, maxHeight + 2 * 10], [x + 10, y + 10], undefined, Origin.BottomRight)
 
 		for (let i = 0; i < barCount; i++) {
 			const frames = extractedFrames.map((frame) => frame[i])
 
-			createSprite('sb/pixel.png', 'Background', 'BottomLeft', { x, y }, () => {
-				fadeAtTime(263646, 1)
-				colorAtTime(263646, Pallete.Lilac)
+			createSprite('sb/pixel.png', Layer.Background, Origin.BottomLeft, [x, y], () => {
+				fade(263646, 1)
+				color(263646, Pallete.Lilac)
 
 				for (let j = 0; j < frames.length; j++) {
-					scaleVec(
-						263646 + timestep * j,
-						263646 + timestep * (j + 1),
-						{ x: width, y: frames[j] * maxHeight },
-						{ x: width, y: frames[j + 1] * maxHeight }
-					)
+					scaleVec([263646 + timestep * j, 263646 + timestep * (j + 1)], [width, frames[j] * maxHeight], [width, frames[j + 1] * maxHeight])
 				}
 			})
 
@@ -77,11 +65,11 @@ function Main() {
 	}
 
 	function Girl() {
-		createSprite('sb/girl.png', 'Background', 'BottomLeft', { x: -200, y: 600 }, () => {
+		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-200, 600], () => {
 			fade(263646, 282168, 1, 1)
 			moveX(263646, 282168, -200, -170)
-			parameter(263646, 282168, Parameter.FlipHorizontal)
-			scaleAtTime(263646, 0.8)
+			flipHorizontal([263646, 282168])
+			scale(263646, 0.8)
 		})
 	}
 
@@ -93,7 +81,7 @@ function Main() {
 			y = 0
 
 		text.split('').forEach((letter) => {
-			createOutlineText(letter, 'Background', 'TopRight', { x, y }, ({ height }) => {
+			createOutlineText(letter, Layer.Background, Origin.TopRight, [x, y], ({ height }) => {
 				fade(263646, 282168, 0.5, 0.5)
 				y += height
 			})
@@ -104,18 +92,18 @@ function Main() {
 		useTxtGenContext(SazanamiMinchoContext)
 
 		const text = 'landscape'
-		const scale = 0.3
-		const lineW = measureLineWidth(text) * scale
+		const scaleFactor = 0.3
+		const lineW = measureLineWidth(text) * scaleFactor
 
 		let x = 700 - lineW,
 			y = 25
 
 		text.split('').forEach((letter) => {
-			createText(letter, 'Background', 'TopLeft', { x, y }, ({ width }) => {
+			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
 				fade(263646, 282168, 1, 1)
-				colorAtTime(263646, Pallete.Lilac)
-				scaleAtTime(263646, scale)
-				x += width * scale
+				color(263646, Pallete.Lilac)
+				scale(263646, scaleFactor)
+				x += width * scaleFactor
 			})
 		})
 	}
@@ -124,18 +112,18 @@ function Main() {
 		useTxtGenContext(AuthenticContext)
 
 		const text = 'afloat storage'
-		const scale = 0.6
+		const scaleFactor = 0.6
 
-		createText(text, 'Background', 'CentreRight', { x: 700, y: 445 }, () => {
+		createText(text, Layer.Background, Origin.CentreRight, [700, 445], () => {
 			fade(263646, 282168, 1, 1)
-			colorAtTime(263646, Pallete.Lilac)
-			scaleAtTime(263646, scale)
+			color(263646, Pallete.Lilac)
+			scale(263646, scaleFactor)
 		})
 	}
 
 	ColorBg(263646, 282168, Pallete.Lilac)
 	Composer()
-	DotGrid(263646, 282168, 854, { x: 320, y: 240 })
+	DotGrid(263646, 282168, 854, [320, 240])
 	Spectrum()
 	Letterbox(263646, 282168, Pallete.White)
 	SongName()
@@ -147,9 +135,9 @@ function Main() {
 
 function TransitionMid() {
 	function GirlW() {
-		createSprite('sb/girlw.png', 'Background', 'Centre', { x: 330, y: 240 }, () => {
+		createSprite('sb/girlw.png', Layer.Background, Origin.Centre, [330, 240], () => {
 			fade(273639, 274123, 1, 1)
-			scaleAtTime(273639, 0.15)
+			scale(273639, 0.15)
 		})
 	}
 
@@ -160,18 +148,18 @@ function TransitionMid() {
 		const endTime = 274123
 		const radius = 135
 		const size = 15
-		const origin = { x: 320, y: 240 }
+		const origin: Vector2 = [320, 240]
 
 		let angle = 0,
 			startTime = 273639
 
 		for (let i = 0; i < count; i++) {
-			let position = addVec(origin, mulVecScalar({ x: Math.sin(angle), y: -Math.cos(angle) }, radius))
+			let position = addVec(origin, mulVecScalar([Math.sin(angle), -Math.cos(angle)], radius))
 
-			Rect(startTime, endTime, { x: 0, y: 0 }, position, () => {
-				scaleVec(startTime, endTime, { x: 0, y: 0 }, { x: size, y: size }, Easing.Out)
-				rotateAtTime(startTime, angle + degToRad(45))
-				colorAtTime(startTime, Pallete.Lilac)
+			Rect(startTime, endTime, [0, 0], position, () => {
+				scaleVec([startTime, endTime], [0, 0], [size, size], Easing.Out)
+				rotate(startTime, angle + degToRad(45))
+				color(startTime, Pallete.Lilac)
 			})
 
 			angle += stepAngle
@@ -180,8 +168,8 @@ function TransitionMid() {
 	}
 
 	ColorBg(273639, 274123, Pallete.White)
-	Circ(273639, 274123, 190, { x: 320, y: 240 }, () => {
-		colorAtTime(273639, Pallete.Lilac)
+	Circ(273639, 274123, 190, [320, 240], () => {
+		color(273639, Pallete.Lilac)
 	})
 	GirlW()
 	SurroundingSqrs()
@@ -191,12 +179,12 @@ function TransitionEnd() {
 	ColorBg(282168, 284789, Pallete.White)
 
 	function RotatingSqr(startTime: number, endTime: number, size: number, startAngle: number) {
-		Rect(startTime, 284303, { x: size, y: size }, { x: 320, y: 240 }, () => {
-			rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + 22.5), Easing.Out)
-			colorAtTime(startTime, Pallete.Lilac)
+		Rect(startTime, 284303, [size, size], [320, 240], () => {
+			rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + 22.5), Easing.Out)
+			color(startTime, Pallete.Lilac)
 		})
-		Rect(startTime, 284303, { x: size - 5, y: size - 5 }, { x: 320, y: 240 }, () => {
-			rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + 22.5), Easing.Out)
+		Rect(startTime, 284303, [size - 5, size - 5], [320, 240], () => {
+			rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + 22.5), Easing.Out)
 		})
 	}
 
@@ -209,9 +197,9 @@ function TransitionEnd() {
 		useTxtGenContext(SazanamiMinchoContext)
 
 		const text = '出逢え'
-		const scale = 0.4
-		const lineW = measureLineWidth(text) * scale
-		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * scale
+		const scaleFactor = 0.4
+		const lineW = measureLineWidth(text) * scaleFactor
+		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * scaleFactor
 		const padding = 2
 
 		let x = 320 - lineW / 2,
@@ -220,20 +208,20 @@ function TransitionEnd() {
 		Rect(
 			284303,
 			284789,
-			{ x: 1, y: lineH + padding * 2 },
-			{ x: x - padding, y: y - padding },
+			[1, lineH + padding * 2],
+			[x - padding, y - padding],
 			() => {
-				scaleVec(284303, 284789, { x: 1, y: lineH + padding * 2 }, { x: lineW + padding * 2, y: lineH + padding * 2 }, Easing.OutCubic)
-				colorAtTime(284303, Pallete.Lilac)
+				scaleVec([284303, 284789], [1, lineH + padding * 2], [lineW + padding * 2, lineH + padding * 2], Easing.OutCubic)
+				color(284303, Pallete.Lilac)
 			},
-			'TopLeft'
+			Origin.TopLeft
 		)
 
 		text.split('').forEach((letter) => {
-			createText(letter, 'Background', 'TopLeft', { x, y }, ({ width }) => {
-				fade(284303, 284789, 1, 1)
-				scaleAtTime(284303, scale)
-				x += width * scale
+			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
+				fade([284303, 284789], 1, 1)
+				scale(284303, scaleFactor)
+				x += width * scaleFactor
 			})
 		})
 	}

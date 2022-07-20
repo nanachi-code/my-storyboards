@@ -1,4 +1,4 @@
-import { fade, scaleAtTime } from '@osbjs/tiny-osbjs'
+import { fade, Layer, Origin, scale } from '@osbjs/tiny-osbjs'
 import { createText, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Letterbox from '../components/Letterbox'
 import { Lyric } from '../types/Lyric'
@@ -40,25 +40,25 @@ function Lyrics() {
 		},
 	]
 
-	const scale = 0.3,
+	const _scale = 0.3,
 		fadeIn = 300,
 		fadeOut = 300
 
 	lyrics.forEach(({ text, startTime, endTime }) => {
 		const spaceCount = (text.match(/ /g) || []).length
 		const spaceW = 5
-		const lineWidth = measureLineWidth(text) * scale + spaceCount * spaceW
+		const lineWidth = measureLineWidth(text) * _scale + spaceCount * spaceW
 
 		let x = 320 - lineWidth / 2
 
 		text.split('').forEach((letter) => {
 			if (letter != ' ') {
-				createText(letter, 'Background', 'TopLeft', { x, y: 425 }, ({ width }) => {
-					scaleAtTime(startTime, scale)
-					fade(startTime, startTime + fadeIn, 0, 1)
-					fade(endTime - fadeOut, endTime, 1, 0)
+				createText(letter, Layer.Background, Origin.TopLeft, [x, 425], ({ width }) => {
+					scale(startTime, _scale)
+					fade([startTime, startTime + fadeIn], 0, 1)
+					fade([endTime - fadeOut, endTime], 1, 0)
 
-					x += width * scale
+					x += width * _scale
 				})
 			} else {
 				x += spaceW

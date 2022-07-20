@@ -1,4 +1,4 @@
-import { createSprite, fadeAtTime, Layer, Origin, scaleAtTime, Vector2 } from '@osbjs/tiny-osbjs'
+import { createSprite, fade, Layer, Origin, scale, Vector2 } from '@osbjs/tiny-osbjs'
 
 export default function Circ(
 	startTime: number,
@@ -6,13 +6,13 @@ export default function Circ(
 	diameter: number,
 	position: Vector2,
 	additionalEffects?: () => void,
-	origin: Origin = 'Centre',
-	layer: Layer = 'Background'
+	origin: Origin = Origin.Centre,
+	layer: Layer = Layer.Background
 ) {
 	createSprite('sb/circ.png', layer, origin, position, () => {
-		scaleAtTime(startTime, diameter / 800)
-		fadeAtTime(startTime, 1)
-		fadeAtTime(endTime, 0)
+		scale(startTime, diameter / 800)
+		fade(startTime, 1)
+		fade(endTime, 0)
 		if (additionalEffects) additionalEffects()
 	})
 }

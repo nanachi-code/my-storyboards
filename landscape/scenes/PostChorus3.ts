@@ -1,17 +1,18 @@
 import {
-	colorAtTime,
+	color,
 	createSprite,
 	degToRad,
 	Easing,
 	fade,
+	flipHorizontal,
+	flipVertical,
+	Layer,
 	moveX,
 	moveY,
+	Origin,
 	Parameter,
-	parameter,
 	rotate,
-	rotateAtTime,
 	scale,
-	scaleAtTime,
 	scaleVec,
 	Vector2,
 } from '@osbjs/tiny-osbjs'
@@ -34,10 +35,10 @@ export default function PostChorus3() {
 
 function Break(startTime: number, endTime: number) {
 	function GirlW() {
-		createSprite('sb/girlw.png', 'Background', 'Centre', { x: 330, y: 240 }, () => {
-			fade(startTime, endTime, 1, 1)
-			scaleAtTime(startTime, 0.15)
-			colorAtTime(startTime, Pallete.Lilac)
+		createSprite('sb/girlw.png', Layer.Background, Origin.Centre, [330, 240], () => {
+			fade([startTime, endTime], 1, 1)
+			scale(startTime, 0.15)
+			color(startTime, Pallete.Lilac)
 		})
 	}
 
@@ -45,18 +46,18 @@ function Break(startTime: number, endTime: number) {
 		useTxtGenContext(SazanamiMinchoContext)
 
 		const text = 'landscape'
-		const scale = 0.3
-		const lineW = measureLineWidth(text) * scale
+		const _scale = 0.3
+		const lineW = measureLineWidth(text) * _scale
 
 		let x = 320 - lineW / 2,
 			y = 25
 
 		text.split('').forEach((letter) => {
-			createText(letter, 'Background', 'TopLeft', { x, y }, ({ width }) => {
-				fade(startTime, endTime, 1, 1)
-				colorAtTime(startTime, Pallete.Lilac)
-				scaleAtTime(startTime, scale)
-				x += width * scale
+			createText(letter, Layer.Background, Origin.TopLeft, [x, y], ({ width }) => {
+				fade([startTime, endTime], 1, 1)
+				color(startTime, Pallete.Lilac)
+				scale(startTime, _scale)
+				x += width * _scale
 			})
 		})
 	}
@@ -65,28 +66,28 @@ function Break(startTime: number, endTime: number) {
 		useTxtGenContext(AuthenticContext)
 
 		const text = 'afloat storage'
-		const scale = 0.6
+		const _scale = 0.6
 
-		createText(text, 'Background', 'Centre', { x: 320, y: 445 }, () => {
-			fade(startTime, endTime, 1, 1)
-			colorAtTime(startTime, Pallete.Lilac)
-			scaleAtTime(startTime, scale)
+		createText(text, Layer.Background, Origin.Centre, [320, 445], () => {
+			fade([startTime, endTime], 1)
+			color(startTime, Pallete.Lilac)
+			scale(startTime, _scale)
 		})
 	}
 
 	function RotatingSqr(size: number, startAngle: number, travelAngle: number) {
-		Rect(startTime, endTime, { x: size, y: size }, { x: 320, y: 240 }, () => {
-			rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + travelAngle))
+		Rect(startTime, endTime, [size, size], [320, 240], () => {
+			rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + travelAngle))
 		})
-		Rect(startTime, endTime, { x: size - 3, y: size - 3 }, { x: 320, y: 240 }, () => {
-			rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + travelAngle))
-			colorAtTime(startTime, Pallete.Lilac)
+		Rect(startTime, endTime, [size - 3, size - 3], [320, 240], () => {
+			rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + travelAngle))
+			color(startTime, Pallete.Lilac)
 		})
 	}
 
 	RotatingSqr(420, 15, 5)
 	RotatingSqr(280, 30, -5)
-	Circ(startTime, endTime, 190, { x: 320, y: 240 })
+	Circ(startTime, endTime, 190, [320, 240])
 	GirlW()
 	Letterbox(startTime, endTime, Pallete.White)
 	SongName()
@@ -96,63 +97,63 @@ function Break(startTime: number, endTime: number) {
 
 function FirstHalf() {
 	function _1() {
-		Circ(326760, 328412, 700, { x: 320, y: 240 }, () => {
-			scale(326760, 328412, 7 / 8, 6.5 / 8)
+		Circ(326760, 328412, 700, [320, 240], () => {
+			scale([326760, 328412], 7 / 8, 6.5 / 8)
 		})
 
-		Circ(326760, 328412, 695, { x: 320, y: 240 }, () => {
-			scale(326760, 328412, 6.97 / 8, 6.47 / 8)
-			colorAtTime(326760, Pallete.Lilac)
+		Circ(326760, 328412, 695, [320, 240], () => {
+			scale([326760, 328412], 6.97 / 8, 6.47 / 8)
+			color(326760, Pallete.Lilac)
 		})
 
-		createSprite('sb/girl.png', 'Background', 'BottomCentre', { x: 320, y: 480 }, () => {
-			fade(326760, 328412, 1, 1)
-			scale(326760, 328412, 0.5, 0.51)
+		createSprite('sb/girl.png', Layer.Background, Origin.BottomCentre, [320, 480], () => {
+			fade([326760, 328412], 1, 1)
+			scale([326760, 328412], 0.5, 0.51)
 		})
 
 		ColorBg(328412, 328743, Pallete.White)
 
-		Circ(328412, 328743, 100, { x: 320, y: 240 }, () => {
-			scale(328412, 328743, 1 / 8, 1 / 10, Easing.Out)
-			colorAtTime(328412, Pallete.Lilac)
+		Circ(328412, 328743, 100, [320, 240], () => {
+			scale([328412, 328743], 1 / 8, 1 / 10, Easing.Out)
+			color(328412, Pallete.Lilac)
 		})
 
 		Flash(326760)
 	}
 
 	function _2() {
-		function RotatingTri(sideLength: number, startAngle: number, travelAngle: number, position: Vector2 = { x: 120, y: 160 }) {
+		function RotatingTri(sideLength: number, startAngle: number, travelAngle: number, position: Vector2 = [120, 160]) {
 			const startTime = 328743,
 				endTime = 330371
 			EquilateralTri(startTime, endTime, sideLength, position, () => {
-				fade(startTime, endTime, 1, 1)
-				rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + travelAngle))
+				fade([startTime, endTime], 1)
+				rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + travelAngle))
 			})
 
 			EquilateralTri(startTime, endTime, sideLength - 3, position, () => {
-				fade(startTime, endTime, 1, 1)
-				rotate(startTime, endTime, degToRad(startAngle), degToRad(startAngle + travelAngle))
-				colorAtTime(startTime, Pallete.Lilac)
+				fade([startTime, endTime], 1)
+				rotate([startTime, endTime], degToRad(startAngle), degToRad(startAngle + travelAngle))
+				color(startTime, Pallete.Lilac)
 			})
 		}
 
 		RotatingTri(300, 75, 5)
 
-		createSprite('sb/girl.png', 'Background', 'TopLeft', { x: 320, y: 0 }, () => {
-			fade(328743, 330371, 1, 1)
-			moveY(328743, 330371, 0, -13)
+		createSprite('sb/girl.png', Layer.Background, Origin.TopLeft, [320, 0], () => {
+			fade([328743, 330371], 1, 1)
+			moveY([328743, 330371], 0, -13)
 		})
 
 		ColorBg(330371, 330694, Pallete.White)
 
-		Circ(330371, 330694, 80, { x: 320, y: 240 }, () => {
-			colorAtTime(330371, Pallete.Lilac)
-			moveX(330371, 330694, 320, 270, Easing.Out)
+		Circ(330371, 330694, 80, [320, 240], () => {
+			color(330371, Pallete.Lilac)
+			moveX([330371, 330694], 320, 270, Easing.Out)
 		})
 
-		Circ(330371, 330694, 80, { x: 320, y: 240 }, () => {
-			colorAtTime(330371, Pallete.Lilac)
-			moveX(330371, 330694, 320, 370, Easing.Out)
+		Circ(330371, 330694, 80, [320, 240], () => {
+			color(330371, Pallete.Lilac)
+			moveX([330371, 330694], 320, 370, Easing.Out)
 		})
 
 		Flash(328743)
@@ -169,8 +170,8 @@ function FirstHalf() {
 				y = 240 - lineH / 2
 
 			text.split('').forEach((letter) => {
-				createOutlineText(letter, 'Background', 'TopRight', { x, y }, ({ height }) => {
-					fade(330694, 332342, 0.5, 0.5)
+				createOutlineText(letter, Layer.Background, Origin.TopRight, [x, y], ({ height }) => {
+					fade([330694, 332342], 0.5)
 					y += height
 				})
 			})
@@ -178,33 +179,33 @@ function FirstHalf() {
 
 		Composer()
 
-		createSprite('sb/girl.png', 'Background', 'TopCentre', { x: 120, y: -250 }, () => {
-			fade(330694, 332342, 1, 1)
-			scaleAtTime(330694, 2)
-			moveX(330694, 332342, 120, 115)
-			parameter(330694, 332342, Parameter.FlipHorizontal)
+		createSprite('sb/girl.png', Layer.Background, Origin.TopCentre, [120, -250], () => {
+			fade([330694, 332342], 1)
+			scale(330694, 2)
+			moveX([330694, 332342], 120, 115)
+			flipHorizontal([330694, 332342])
 		})
 
 		ColorBg(332342, 332672, Pallete.White)
 
-		Circ(332342, 332672, 80, { x: 270, y: 240 }, () => {
-			colorAtTime(332342, Pallete.Lilac)
-			moveY(332342, 332672, 240, 190, Easing.Out)
+		Circ(332342, 332672, 80, [270, 240], () => {
+			color(332342, Pallete.Lilac)
+			moveY([332342, 332672], 240, 190, Easing.Out)
 		})
 
-		Circ(332342, 332672, 80, { x: 270, y: 240 }, () => {
-			colorAtTime(332342, Pallete.Lilac)
-			moveY(332342, 332672, 240, 290, Easing.Out)
+		Circ(332342, 332672, 80, [270, 240], () => {
+			color(332342, Pallete.Lilac)
+			moveY([332342, 332672], 240, 290, Easing.Out)
 		})
 
-		Circ(332342, 332672, 80, { x: 370, y: 240 }, () => {
-			colorAtTime(332342, Pallete.Lilac)
-			moveY(332342, 332672, 240, 190, Easing.Out)
+		Circ(332342, 332672, 80, [370, 240], () => {
+			color(332342, Pallete.Lilac)
+			moveY([332342, 332672], 240, 190, Easing.Out)
 		})
 
-		Circ(332342, 332672, 80, { x: 370, y: 240 }, () => {
-			colorAtTime(332342, Pallete.Lilac)
-			moveY(332342, 332672, 240, 290, Easing.Out)
+		Circ(332342, 332672, 80, [370, 240], () => {
+			color(332342, Pallete.Lilac)
+			moveY([332342, 332672], 240, 290, Easing.Out)
 		})
 
 		Flash(330694)
@@ -233,11 +234,11 @@ function SecondHalf() {
 			if (letter != ' ') {
 				let endX = startX - (travelDistanceStep * (text.length / 2 - 1 - i)) / 2
 
-				createText(letter, 'Background', 'TopLeft', { x: startX, y }, ({ width }) => {
-					moveX(startTime, endTime, startX, endX, Easing.Out)
-					fade(startTime, endTime, 1, 1)
-					scaleAtTime(startTime, _scale)
-					colorAtTime(startTime, Pallete.Lilac)
+				createText(letter, Layer.Background, Origin.TopLeft, [startX, y], ({ width }) => {
+					fade([startTime, endTime], 1)
+					moveX([startTime, endTime], startX, endX, Easing.Out)
+					scale(startTime, _scale)
+					color(startTime, Pallete.Lilac)
 					startX += width * _scale
 				})
 			} else {
@@ -247,40 +248,40 @@ function SecondHalf() {
 	}
 
 	function _1() {
-		EquilateralTri(335283, 336922, 250, { x: 460, y: 240 }, () => {
-			rotateAtTime(335283, degToRad(-90))
-			moveX(335283, 336922, 460, 465)
+		EquilateralTri(335283, 336922, 250, [460, 240], () => {
+			rotate(335283, degToRad(-90))
+			moveX([335283, 336922], 460, 465)
 		})
 
-		EquilateralTri(335283, 336922, 245, { x: 460, y: 240 }, () => {
-			rotateAtTime(335283, degToRad(-90))
-			moveX(335283, 336922, 460, 465)
-			colorAtTime(335283, Pallete.Lilac)
+		EquilateralTri(335283, 336922, 245, [460, 240], () => {
+			rotate(335283, degToRad(-90))
+			moveX([335283, 336922], 460, 465)
+			color(335283, Pallete.Lilac)
 		})
 
-		EquilateralTri(335283, 336922, 250, { x: 180, y: 240 }, () => {
-			rotateAtTime(335283, degToRad(90))
-			moveX(335283, 336922, 180, 175)
+		EquilateralTri(335283, 336922, 250, [180, 240], () => {
+			rotate(335283, degToRad(90))
+			moveX([335283, 336922], 180, 175)
 		})
 
-		EquilateralTri(335283, 336922, 245, { x: 180, y: 240 }, () => {
-			rotateAtTime(335283, degToRad(90))
-			moveX(335283, 336922, 180, 175)
-			colorAtTime(335283, Pallete.Lilac)
+		EquilateralTri(335283, 336922, 245, [180, 240], () => {
+			rotate(335283, degToRad(90))
+			moveX([335283, 336922], 180, 175)
+			color(335283, Pallete.Lilac)
 		})
 
-		createSprite('sb/girl.png', 'Background', 'BottomLeft', { x: -50, y: 480 }, () => {
-			fade(335283, 336922, 1, 1)
-			moveY(335283, 336922, 480, 485)
-			scaleAtTime(335283, 0.5)
+		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-50, 480], () => {
+			fade([335283, 336922], 1, 1)
+			moveY([335283, 336922], 480, 485)
+			scale(335283, 0.5)
 		})
 
-		createSprite('sb/girl.png', 'Background', 'TopRight', { x: 690, y: 0 }, () => {
-			fade(335283, 336922, 1, 1)
-			moveY(335283, 336922, 0, -5)
-			scaleAtTime(335283, 0.5)
-			parameter(335283, 336922, Parameter.FlipVertical)
-			parameter(335283, 336922, Parameter.FlipHorizontal)
+		createSprite('sb/girl.png', Layer.Background, Origin.TopRight, [690, 0], () => {
+			fade([335283, 336922], 1, 1)
+			moveY([335283, 336922], 0, -5)
+			scale(335283, 0.5)
+			flipHorizontal([335283, 336922])
+			flipVertical([335283, 336922])
 		})
 
 		ColorBg(336922, 337250, Pallete.White)
@@ -299,8 +300,8 @@ function SecondHalf() {
 				y = 240
 
 			text.split('').forEach((letter) => {
-				createOutlineText(letter, 'Background', 'CentreLeft', { x, y }, ({ width }) => {
-					fade(337250, 338889, 0.5, 0.5)
+				createOutlineText(letter, Layer.Background, Origin.CentreLeft, [x, y], ({ width }) => {
+					fade([337250, 338889], 0.5)
 					x += width
 				})
 			})
@@ -308,18 +309,18 @@ function SecondHalf() {
 
 		Composer()
 
-		createSprite('sb/girl.png', 'Background', 'TopRight', { x: 690, y: 280 }, () => {
-			fade(337250, 338889, 1, 1)
-			moveX(337250, 338889, 690, 685)
-			scaleAtTime(337250, 0.5)
+		createSprite('sb/girl.png', Layer.Background, Origin.TopRight, [690, 280], () => {
+			fade([337250, 338889], 1)
+			moveX([337250, 338889], 690, 685)
+			scale(337250, 0.5)
 		})
 
-		createSprite('sb/girl.png', 'Background', 'BottomLeft', { x: -50, y: 200 }, () => {
+		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-50, 200], () => {
 			fade(337250, 338889, 1, 1)
 			moveX(337250, 338889, -50, -45)
-			scaleAtTime(337250, 0.5)
-			parameter(337250, 338889, Parameter.FlipVertical)
-			parameter(337250, 338889, Parameter.FlipHorizontal)
+			scale(337250, 0.5)
+			flipVertical([337250, 338889])
+			flipHorizontal([337250, 338889])
 		})
 
 		const thickness = 2
@@ -327,23 +328,23 @@ function SecondHalf() {
 		Rect(
 			337250,
 			338889,
-			{ x: 185, y: thickness },
-			{ x: 677, y: 70 },
+			[185, thickness],
+			[677, 70],
 			() => {
-				scaleVec(337250, 338889, { x: 185, y: thickness }, { x: 370, y: thickness })
+				scaleVec([337250, 338889], [185, thickness], [370, thickness])
 			},
-			'CentreRight'
+			Origin.CentreRight
 		)
 
 		Rect(
 			337250,
 			338889,
-			{ x: 185, y: thickness },
-			{ x: -37, y: 410 },
+			[185, thickness],
+			[-37, 410],
 			() => {
-				scaleVec(337250, 338889, { x: 185, y: thickness }, { x: 370, y: thickness })
+				scaleVec([337250, 338889], [185, thickness], [370, thickness])
 			},
-			'CentreLeft'
+			Origin.CentreLeft
 		)
 
 		ColorBg(338889, 339217, Pallete.White)
@@ -352,26 +353,26 @@ function SecondHalf() {
 	}
 
 	function _3() {
-		Circ(339217, 340856, 700, { x: 320, y: 240 }, () => {
-			scale(339217, 340856, 7 / 8, 6.9 / 8)
+		Circ(339217, 340856, 700, [320, 240], () => {
+			scale([339217, 340856], 7 / 8, 6.9 / 8)
 		})
 
-		Circ(339217, 340856, 695, { x: 320, y: 240 }, () => {
-			scale(339217, 340856, 6.97 / 8, 6.87 / 8)
-			colorAtTime(339217, Pallete.Lilac)
+		Circ(339217, 340856, 695, [320, 240], () => {
+			scale([339217, 340856], 6.97 / 8, 6.87 / 8)
+			color(339217, Pallete.Lilac)
 		})
 
-		Rect(339217, 340856, { x: 500, y: 500 }, { x: 700, y: 400 }, () => {
-			rotate(339217, 340856, degToRad(10), degToRad(12))
+		Rect(339217, 340856, [500, 500], [700, 400], () => {
+			rotate([339217, 340856], degToRad(10), degToRad(12))
 		})
 
-		Rect(339217, 340856, { x: 500, y: 500 }, { x: -60, y: 80 }, () => {
-			rotate(339217, 340856, degToRad(10), degToRad(12))
+		Rect(339217, 340856, [500, 500], [-60, 80], () => {
+			rotate([339217, 340856], degToRad(10), degToRad(12))
 		})
 
-		createSprite('sb/girl.png', 'Background', 'Centre', { x: 320, y: 240 }, () => {
-			fade(339217, 340856, 1, 1)
-			scale(339217, 340856, 0.4, 0.41)
+		createSprite('sb/girl.png', Layer.Background, Origin.Centre, [320, 240], () => {
+			fade([339217, 340856], 1)
+			scale([339217, 340856], 0.4, 0.41)
 		})
 
 		ColorBg(340856, 341184, Pallete.White)

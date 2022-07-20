@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@osbjs/spectrum-tiny-osbjs': ^1.2.0
-  '@osbjs/tiny-osbjs': ^1.13.2
-  '@osbjs/txtgen-tiny-osbjs': ^2.0.1
+  '@osbjs/spectrum-tiny-osbjs': ^1.4.0
+  '@osbjs/tiny-osbjs': ^3.0.0
+  '@osbjs/txtgen-tiny-osbjs': ^2.2.0
   '@types/node': ^18.0.3
   prettier: ^2.7.1
   prettier-plugin-organize-imports: ^3.0.0
@@ -11,9 +11,9 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  '@osbjs/spectrum-tiny-osbjs': 1.2.0_@osbjs+tiny-osbjs@1.13.2
-  '@osbjs/tiny-osbjs': 1.13.2
-  '@osbjs/txtgen-tiny-osbjs': 2.0.1_@osbjs+tiny-osbjs@1.13.2
+  '@osbjs/spectrum-tiny-osbjs': 1.4.0
+  '@osbjs/tiny-osbjs': 3.0.0
+  '@osbjs/txtgen-tiny-osbjs': 2.2.0_@osbjs+tiny-osbjs@3.0.0
 
 devDependencies:
   '@types/node': 18.0.6
@@ -75,27 +75,24 @@ packages:
       - supports-color
     dev: false
 
-  /@osbjs/spectrum-tiny-osbjs/1.2.0_@osbjs+tiny-osbjs@1.13.2:
-    resolution: {integrity: sha512-vhqTSxCFx45T0ETMLQ2XMwiqvtOIA5A7gvOUxEEv7YSaXXCygoXx4bqB3tL0qp7wmNPqG2SFOeOle/YetxaY4g==}
-    peerDependencies:
-      '@osbjs/tiny-osbjs': ^1.9.1
+  /@osbjs/spectrum-tiny-osbjs/1.4.0:
+    resolution: {integrity: sha512-7gjcNdFgBo1pWQ9XJGSObJ22wmxbxsVskptLB1DGxYiiJE2a4CcxT1isSRkBYIRM2qxk0zzcm0WKe40wXyPgIg==}
     dependencies:
-      '@osbjs/tiny-osbjs': 1.13.2
       ffmpeg-static: 5.0.2
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@osbjs/tiny-osbjs/1.13.2:
-    resolution: {integrity: sha512-qOGNCfxCdut62SaYdpqEbmIboZSVZQ/YBS/DYkuWMzLLeNPiMerqtP9dBOLKN7p4Jz07eB8ODnnPoqjJh6/lEQ==}
+  /@osbjs/tiny-osbjs/3.0.0:
+    resolution: {integrity: sha512-AfLQUJAjo+IC17ri0gF+Kl9/a8brTVqowlv2CYy7HpevfX2egNmDisD6te3oLX33oYfrZzx69B7xfWZ5Ny5+Jg==}
     dev: false
 
-  /@osbjs/txtgen-tiny-osbjs/2.0.1_@osbjs+tiny-osbjs@1.13.2:
-    resolution: {integrity: sha512-9j5UMZgZxgd5Vra78aGww16uPxj58905Ao6IexlWaCkE6v4LOwGU+U4qtF7QG5zS99VD0t9SfhSF3qyi1VhizQ==}
+  /@osbjs/txtgen-tiny-osbjs/2.2.0_@osbjs+tiny-osbjs@3.0.0:
+    resolution: {integrity: sha512-Y7JXN+cQAEl5JB4lOHdbUkWF2eTDmuCuiu9w0nLaOwpt5HPKPGUo59lTvq70YnDgHPGQQ34uO+bnpqdvDsNODQ==}
     peerDependencies:
-      '@osbjs/tiny-osbjs': ^1.5.0
+      '@osbjs/tiny-osbjs': ^3.0.0
     dependencies:
-      '@osbjs/tiny-osbjs': 1.13.2
+      '@osbjs/tiny-osbjs': 3.0.0
       canvas: 2.9.3
       fs-extra: 10.1.0
     transitivePeerDependencies:
