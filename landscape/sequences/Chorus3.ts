@@ -721,7 +721,7 @@ function SecondHalf() {
 
 		GirlW()
 		_Lyrics()
-		Letterbox(324145, 326760, Pallete.White)
+		Letterbox(324145, 326760)
 		SongName()
 		Artist()
 	}

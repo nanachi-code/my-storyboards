@@ -125,7 +125,7 @@ function Main() {
 	Composer()
 	DotGrid(263646, 282168, 854, [320, 240])
 	Spectrum()
-	Letterbox(263646, 282168, Pallete.White)
+	Letterbox(263646, 282168)
 	SongName()
 	Artist()
 	Girl()

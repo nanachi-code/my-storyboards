@@ -2,23 +2,25 @@ lockfileVersion: 5.4
 
 specifiers:
   '@osbjs/spectrum-tiny-osbjs': ^1.4.0
-  '@osbjs/tiny-osbjs': 3.0.1
+  '@osbjs/tiny-osbjs': 3.0.4
   '@osbjs/txtgen-tiny-osbjs': ^2.2.0
   '@types/node': ^18.0.3
   prettier: ^2.7.1
   prettier-plugin-organize-imports: ^3.0.0
+  simplex-noise: ^3.0.1
   ts-node: ^10.8.1
   typescript: ^4.7.4
 
 dependencies:
   '@osbjs/spectrum-tiny-osbjs': 1.4.0
-  '@osbjs/tiny-osbjs': 3.0.1
-  '@osbjs/txtgen-tiny-osbjs': 2.2.0_@osbjs+tiny-osbjs@3.0.1
+  '@osbjs/tiny-osbjs': 3.0.4
+  '@osbjs/txtgen-tiny-osbjs': 2.2.0_@osbjs+tiny-osbjs@3.0.4
+  prettier-plugin-organize-imports: 3.0.0_gd3y7r3s3evy6b2vthd7dmacga
+  simplex-noise: 3.0.1
 
 devDependencies:
   '@types/node': 18.0.6
   prettier: 2.7.1
-  prettier-plugin-organize-imports: 3.0.0_gd3y7r3s3evy6b2vthd7dmacga
   ts-node: 10.9.1_tdn3ypgnfy6bmey2q4hu5jonwi
   typescript: 4.7.4
 
@@ -83,16 +85,16 @@ packages:
       - supports-color
     dev: false
 
-  /@osbjs/tiny-osbjs/3.0.1:
-    resolution: {integrity: sha512-40AHwGRTwPf8oR9/7SUGydxkCPVkZZNzn8ekFYI8is/erZ5ab0LOoIJ1ld2Qr7yLw8vLUr4H816O6xFY4roZVQ==}
+  /@osbjs/tiny-osbjs/3.0.4:
+    resolution: {integrity: sha512-00PiubuCFI9pPl5n3ZEvs5A6nGaJLEA+WplvJJjq/Df0GATZ2kH1JiTfnRuKDKJOk1GtAdlzKEYQpYPdPINVQg==}
     dev: false
 
-  /@osbjs/txtgen-tiny-osbjs/2.2.0_@osbjs+tiny-osbjs@3.0.1:
+  /@osbjs/txtgen-tiny-osbjs/2.2.0_@osbjs+tiny-osbjs@3.0.4:
     resolution: {integrity: sha512-Y7JXN+cQAEl5JB4lOHdbUkWF2eTDmuCuiu9w0nLaOwpt5HPKPGUo59lTvq70YnDgHPGQQ34uO+bnpqdvDsNODQ==}
     peerDependencies:
       '@osbjs/tiny-osbjs': ^3.0.0
     dependencies:
-      '@osbjs/tiny-osbjs': 3.0.1
+      '@osbjs/tiny-osbjs': 3.0.4
       canvas: 2.9.3
       fs-extra: 10.1.0
     transitivePeerDependencies:
@@ -497,13 +499,12 @@ packages:
     dependencies:
       prettier: 2.7.1
       typescript: 4.7.4
-    dev: true
+    dev: false
 
   /prettier/2.7.1:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /progress/2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
@@ -561,6 +562,10 @@ packages:
       decompress-response: 4.2.1
       once: 1.4.0
       simple-concat: 1.0.1
+    dev: false
+
+  /simplex-noise/3.0.1:
+    resolution: {integrity: sha512-eww0SFiWLyOaUKQMJ7gbdvQJvULeJdM/Y4BiC3rrOQnYHo+MSPh465/qeXSZkpTdB9/HthumpnYD3DobZweBBQ==}
     dev: false
 
   /string-width/4.2.3:
@@ -640,7 +645,6 @@ packages:
     resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}

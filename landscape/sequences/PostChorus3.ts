@@ -18,6 +18,7 @@ import {
 import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
+import DotGrid from '../components/DotGrid'
 import EquilateralTri from '../components/EquilateralTri'
 import Flash from '../components/Flash'
 import Letterbox from '../components/Letterbox'
@@ -88,7 +89,7 @@ function Break(startTime: number, endTime: number) {
 	RotatingSqr(280, 30, -5)
 	Circ(startTime, endTime, 190, [320, 240])
 	GirlW()
-	Letterbox(startTime, endTime, Pallete.White)
+	Letterbox(startTime, endTime)
 	SongName()
 	Artist()
 	Flash(startTime)
@@ -104,6 +105,8 @@ function FirstHalf() {
 			scale([326760, 328412], 6.97 / 8, 6.47 / 8)
 			color(326760, Pallete.Lilac)
 		})
+
+		DotGrid(326760, 328412, 854, [320, 240])
 
 		createSprite('sb/girl.png', Layer.Background, Origin.BottomCentre, [320, 480], () => {
 			fade([326760, 328412], 1, 1)
@@ -137,6 +140,8 @@ function FirstHalf() {
 		}
 
 		RotatingTri(300, 75, 5)
+
+		DotGrid(328743, 330371, 854, [320, 240])
 
 		createSprite('sb/girl.png', Layer.Background, Origin.TopLeft, [320, 0], () => {
 			fade([328743, 330371], 1, 1)
@@ -177,6 +182,8 @@ function FirstHalf() {
 		}
 
 		Composer()
+
+		DotGrid(330694, 332342, 854, [320, 240])
 
 		createSprite('sb/girl.png', Layer.Background, Origin.TopCentre, [120, -250], () => {
 			fade([330694, 332342], 1)
@@ -269,6 +276,8 @@ function SecondHalf() {
 			color(335283, Pallete.Lilac)
 		})
 
+		DotGrid(335283, 336922, 854, [320, 240])
+
 		createSprite('sb/girl.png', Layer.Background, Origin.BottomLeft, [-50, 480], () => {
 			fade([335283, 336922], 1, 1)
 			moveY([335283, 336922], 480, 485)
@@ -307,6 +316,8 @@ function SecondHalf() {
 		}
 
 		Composer()
+
+		DotGrid(337250, 338889, 854, [320, 240])
 
 		createSprite('sb/girl.png', Layer.Background, Origin.TopRight, [690, 280], () => {
 			fade([337250, 338889], 1)
@@ -352,22 +363,25 @@ function SecondHalf() {
 	}
 
 	function _3() {
-		Circ(339217, 340856, 700, [320, 240], () => {
-			scale([339217, 340856], 7 / 8, 6.9 / 8)
-		})
-
-		Circ(339217, 340856, 695, [320, 240], () => {
-			scale([339217, 340856], 6.97 / 8, 6.87 / 8)
-			color(339217, Pallete.Lilac)
-		})
-
 		Rect(339217, 340856, [500, 500], [700, 400], () => {
 			rotate([339217, 340856], degToRad(10), degToRad(12))
+		})
+
+		Rect(339217, 340856, [497, 497], [700, 400], () => {
+			rotate([339217, 340856], degToRad(10), degToRad(12))
+			color(339217, Pallete.Lilac)
 		})
 
 		Rect(339217, 340856, [500, 500], [-60, 80], () => {
 			rotate([339217, 340856], degToRad(10), degToRad(12))
 		})
+
+		Rect(339217, 340856, [497, 497], [-60, 80], () => {
+			rotate([339217, 340856], degToRad(10), degToRad(12))
+			color(339217, Pallete.Lilac)
+		})
+
+		DotGrid(339217, 340856, 854, [320, 240])
 
 		createSprite('sb/girl.png', Layer.Background, Origin.Centre, [320, 240], () => {
 			fade([339217, 340856], 1)
