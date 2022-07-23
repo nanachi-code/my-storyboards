@@ -46,7 +46,14 @@ function Main() {
 		let x = 700,
 			y = 363
 
-		Rect(263646, 282168, [barCount * width + margin * (barCount - 1) + 2 * 10, maxHeight + 2 * 10], [x + 10, y + 10], undefined, Origin.BottomRight)
+		Rect(
+			263646,
+			282168,
+			[barCount * width + margin * (barCount - 1) + 2 * 10, maxHeight + 2 * 10],
+			[x + 10, y + 10],
+			undefined,
+			Origin.BottomRight
+		)
 
 		for (let i = 0; i < barCount; i++) {
 			const frames = extractedFrames.map((frame) => frame[i])

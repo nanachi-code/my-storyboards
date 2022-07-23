@@ -1,4 +1,4 @@
-import { cloneVec, color, degToRad, Easing, fade, interpolate, move, moveX, rotate, scale, Vector2 } from '@osbjs/tiny-osbjs'
+import { cloneVec, color, degToRad, Easing, fade, interpolate, move, rotate, scale, Vector2 } from '@osbjs/tiny-osbjs'
 import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
 import Flash from '../components/Flash'

@@ -1,6 +1,5 @@
 import { createTxtGenContext, useFont } from '@osbjs/txtgen-tiny-osbjs'
 import { beatmapFolder } from '../config'
-import Pallete from './pallete'
 
 useFont('./SazanamiMincho.ttf', 'SazanamiMincho')
 useFont('./AuthenticSignature.otf', 'AuthenticSignature')

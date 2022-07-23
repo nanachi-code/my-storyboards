@@ -14,7 +14,7 @@ import PreChorus3 from './sequences/PreChorus3'
 import Verse1 from './sequences/Verse1'
 import Verse2 from './sequences/Verse2'
 import eject from './utils/eject'
-import { AuthenticContext, SazanamiMinchoContext, SazanamiMinchoBigContext } from './utils/txtGenContext'
+import { AuthenticContext, SazanamiMinchoBigContext, SazanamiMinchoContext } from './utils/txtGenContext'
 
 reportBuildTime((end) => {
 	useContext(createContext())
