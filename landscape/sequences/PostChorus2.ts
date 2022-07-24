@@ -1,15 +1,25 @@
+import { createSprite, Layer, Origin, scale, color, fade, additiveBlending } from '@osbjs/tiny-osbjs'
+import ColorBg from '../components/ColorBg'
+import FallingLeaves from '../components/FallingLeaves'
+import Flash from '../components/Flash'
 import FlowField from '../components/FlowField'
+import Paricles from '../components/Particles'
+import Pallete from '../utils/pallete'
 
 export function PostChorus2() {
-	// ColorBg(217898, 249339, Pallete.ElectricViolet)
+	const fadeOut = 249339 - 247405
 
-	// createSprite('sb/highlight.png', Layer.Background, Origin.Centre, [320, 240], () => {
-	// 	scale(217898, 4)
-	// 	color(217898, [0, 0, 0])
-	// 	fade([217898, 249339], 1)
-	// })
+	function Highlight() {
+		createSprite('sb/highlight.png', Layer.Background, Origin.Centre, [0, 0], () => {
+			scale(217898, 2)
+			additiveBlending([217898, 249339])
+			fade([217898, 249339], 0.4)
+		})
+	}
 
-	FlowField(217898, 249339)
-
-	// Flash(217898)
+	ColorBg(217898, 249339, Pallete.RussianViolet, fadeOut)
+	Paricles(217898, 249339, fadeOut)
+	FallingLeaves(217898, 249339, fadeOut)
+	Highlight()
+	Flash(217898)
 }

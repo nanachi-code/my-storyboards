@@ -7,5 +7,6 @@ import { beatmapFolder, storyboardFileName } from '../config'
 export default function eject(end: () => void) {
 	fs.writeFileSync(path.join(beatmapFolder, storyboardFileName), generateStoryboardOsb(), 'utf8')
 
-	ejectAllTextImages().then(() => end())
+	// ejectAllTextImages().then(() => end())
+	end()
 }

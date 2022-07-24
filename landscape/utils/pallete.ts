@@ -1,4 +1,4 @@
-import { hexToRgb } from '@osbjs/txtgen-tiny-osbjs'
+import { hexToRgb } from '@osbjs/tiny-osbjs'
 
 const Pallete = {
 	Black: hexToRgb('#000000'),
@@ -9,6 +9,7 @@ const Pallete = {
 	PurpleNavy: hexToRgb('#5E548E'),
 	RussianViolet: hexToRgb('#231942'),
 	ElectricViolet: hexToRgb('#8F25FF'),
+	LightCoral: hexToRgb('#f08080')
 }
 
 export default Pallete

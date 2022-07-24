@@ -20,9 +20,9 @@ reportBuildTime((end) => {
 	useContext(createContext())
 	warnsEmptyObjects()
 
-	clearOutputFolder(SazanamiMinchoContext)
-	clearOutputFolder(SazanamiMinchoBigContext)
-	clearOutputFolder(AuthenticContext)
+	// clearOutputFolder(SazanamiMinchoContext)
+	// clearOutputFolder(SazanamiMinchoBigContext)
+	// clearOutputFolder(AuthenticContext)
 
 	HideBg(() => {
 		Vig(() => {

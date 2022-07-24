@@ -6,7 +6,7 @@ import { SazanamiMinchoContext } from '../utils/txtGenContext'
 
 export default function Intro() {
 	Letterbox(1512, 40875)
-	Lyrics()
+	// Lyrics()
 }
 
 function Lyrics() {

@@ -15,7 +15,7 @@ export default function Bridge() {
 }
 
 function FirstHalf() {
-	Letterbox(249339, 256252, [854, 150])
+	// Letterbox(249339, 256252, [854, 150])
 	Flash(249339)
 }
 
@@ -23,8 +23,9 @@ function MidTransition() {
 	function RotatingCircs() {
 		const maxRotationRadius = 100,
 			minRotationRadius = 0
+		const circDia = 80
 
-		Circ(256252, 257223, 50, [320, 240], () => {
+		Circ(256252, 257223, circDia, [320, 240], () => {
 			color(256252, Pallete.Lilac)
 			move([256252, 256576], [320, 240], [320 - maxRotationRadius, 240], Easing.Out)
 
@@ -42,7 +43,7 @@ function MidTransition() {
 			} while (time <= 257223)
 		})
 
-		Circ(256252, 257223, 50, [320, 240], () => {
+		Circ(256252, 257223, circDia, [320, 240], () => {
 			color(256252, Pallete.Lilac)
 			move([256252, 256576], [320, 240], [320 + maxRotationRadius, 240], Easing.Out)
 

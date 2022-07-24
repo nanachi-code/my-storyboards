@@ -1,8 +1,9 @@
-import { Color, color as setColor } from '@osbjs/tiny-osbjs'
+import { Color, color as setColor, fade } from '@osbjs/tiny-osbjs'
 import Rect from './Rect'
 
-export default function ColorBg(startTime: number, endTime: number, color: Color) {
+export default function ColorBg(startTime: number, endTime: number, color: Color, fadeOut: number = 0) {
 	Rect(startTime, endTime, [854, 480], [320, 240], () => {
 		setColor(startTime, color)
+		if (fadeOut) fade([endTime - fadeOut, endTime], 1, 0)
 	})
 }

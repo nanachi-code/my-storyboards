@@ -1,0 +1,19 @@
+{
+	// prettier-ignore
+	"createSprite": {
+		"prefix": "createSprite",
+		"body": [
+			"createSprite('$1', Layer.${2:Background}, Origin.${3:Centre}, [${4:320}, ${5:240}], () => {",
+			"\t$0",
+			"})"
+		]
+	},
+	"component":{
+		"prefix": "component",
+		"body": [
+			"export default function $1(startTime: number, endTime: number, $2) {",
+			"\t$0",
+			"}"
+		]
+	}
+}
