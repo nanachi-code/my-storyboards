@@ -15,7 +15,7 @@ import {
 	scaleVec,
 	Vector2,
 } from '@osbjs/tiny-osbjs'
-import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
+import { createOutlineText, createText, maxLineHeight, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
 import DotGrid from '../components/DotGrid'
@@ -230,7 +230,7 @@ function SecondHalf() {
 		const spaceW = 7
 		const _scale = 0.4
 		const lineW = measureLineWidth(text.replace(' ', '')) * _scale + spaceCount * spaceW
-		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * _scale
+		const lineH = maxLineHeight(text) * _scale
 		const travelDistanceStep = 5
 
 		let startX = 320 - lineW / 2

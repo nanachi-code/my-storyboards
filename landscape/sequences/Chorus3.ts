@@ -14,7 +14,15 @@ import {
 	scale,
 	scaleVec,
 } from '@osbjs/tiny-osbjs'
-import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
+import {
+	createOutlineText,
+	createText,
+	maxLineHeight,
+	maxLineWidth,
+	measureLineHeight,
+	measureLineWidth,
+	useTxtGenContext,
+} from '@osbjs/txtgen-tiny-osbjs'
 import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
 import Flash from '../components/Flash'
@@ -83,7 +91,7 @@ function FirstHalf() {
 
 		lyrics.forEach((line) => {
 			line.forEach(({ text, startTime, endTime }, i) => {
-				const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr))
+				const lineH = maxLineHeight(text)
 				const lineMargin = 10
 				const angle = degToRad(-5)
 				const travelDistance = 30
@@ -122,7 +130,7 @@ function FirstHalf() {
 				const _scale = 0.4
 				const lineMargin = 40
 				const padding = 2
-				const lineW = measureLineWidth(text, (pr, cr) => Math.max(pr, cr)) * _scale
+				const lineW = maxLineWidth(text) * _scale
 				const lineH = measureLineHeight(text) * _scale
 
 				let y = 60
@@ -299,7 +307,7 @@ function FirstHalf() {
 		const paddingX = 7
 		const marginX = 15
 		const lineW = measureLineWidth(text) + marginX * (text.length - 1) + paddingX * 2 * text.length
-		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr))
+		const lineH = maxLineHeight(text)
 
 		let x = 320 - lineW / 2
 		let y = 240 - lineH / 2
@@ -436,7 +444,7 @@ function SecondHalf() {
 
 		lyrics.forEach((line) => {
 			line.forEach(({ text, startTime, endTime }, i) => {
-				const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr))
+				const lineH = maxLineHeight(text)
 
 				const lineMargin = 10
 				const angle = degToRad(-5)
@@ -476,7 +484,7 @@ function SecondHalf() {
 				const _scale = 0.4
 				const lineMargin = 40
 				const padding = 2
-				const lineW = measureLineWidth(text, (pr, cr) => Math.max(pr, cr)) * _scale
+				const lineW = maxLineWidth(text) * _scale
 				const lineH = measureLineHeight(text) * _scale
 
 				let y = 60
@@ -659,7 +667,7 @@ function SecondHalf() {
 			const text = 'この景色を'
 			const _scale = 0.4
 			const lineW = measureLineWidth(text) * _scale
-			const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * _scale
+			const lineH = maxLineHeight(text) * _scale
 			const padding = 2
 
 			let x = 400,

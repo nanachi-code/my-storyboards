@@ -13,13 +13,14 @@ export function PostChorus2() {
 		createSprite('sb/highlight.png', Layer.Background, Origin.Centre, [0, 0], () => {
 			scale(217898, 2)
 			additiveBlending([217898, 249339])
-			fade([217898, 249339], 0.4)
+			fade([217898, 247405], 0.4)
+			fade([247405, 249339], 0.4, 0)
 		})
 	}
 
-	ColorBg(217898, 249339, Pallete.RussianViolet, fadeOut)
-	Paricles(217898, 249339, fadeOut)
-	FallingLeaves(217898, 249339, fadeOut)
+	ColorBg(217898, 249339, Pallete.RussianViolet, 0, fadeOut)
+	Paricles(217898, 249339, 0, fadeOut)
+	FallingLeaves(217898, 249339, 0, fadeOut)
 	Highlight()
 	Flash(217898)
 }

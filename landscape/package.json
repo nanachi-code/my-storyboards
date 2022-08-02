@@ -12,8 +12,8 @@
 	},
 	"dependencies": {
 		"@osbjs/spectrum-tiny-osbjs": "^1.4.0",
-		"@osbjs/tiny-osbjs": "3.1.1",
-		"@osbjs/txtgen-tiny-osbjs": "^2.3.0",
+		"@osbjs/tiny-osbjs": "3.1.4",
+		"@osbjs/txtgen-tiny-osbjs": "^2.5.1",
 		"simplex-noise": "^3.0.1"
 	}
 }

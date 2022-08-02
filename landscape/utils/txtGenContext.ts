@@ -1,8 +1,8 @@
 import { createTxtGenContext, useFont } from '@osbjs/txtgen-tiny-osbjs'
 import { beatmapFolder } from '../config'
 
-useFont('./SazanamiMincho.ttf', 'SazanamiMincho')
-useFont('./AuthenticSignature.otf', 'AuthenticSignature')
+useFont('fonts/SazanamiMincho.ttf', 'SazanamiMincho')
+useFont('fonts/AuthenticSignature.otf', 'AuthenticSignature')
 
 export const SazanamiMinchoContext = createTxtGenContext('sb/lyrics/SazanamiMincho', beatmapFolder, {
 	name: 'SazanamiMincho',

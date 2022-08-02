@@ -16,7 +16,7 @@ import {
 	scaleVec,
 	Vector2,
 } from '@osbjs/tiny-osbjs'
-import { createOutlineText, createText, measureLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
+import { createOutlineText, createText, maxLineHeight, measureLineWidth, useTxtGenContext } from '@osbjs/txtgen-tiny-osbjs'
 import Circ from '../components/Circ'
 import ColorBg from '../components/ColorBg'
 import DotGrid from '../components/DotGrid'
@@ -206,7 +206,7 @@ function TransitionEnd() {
 		const text = '出逢え'
 		const scaleFactor = 0.4
 		const lineW = measureLineWidth(text) * scaleFactor
-		const lineH = measureLineHeight(text, (pr, cr) => Math.max(pr, cr)) * scaleFactor
+		const lineH = maxLineHeight(text) * scaleFactor
 		const padding = 2
 
 		let x = 320 - lineW / 2,
