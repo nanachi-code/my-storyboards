@@ -104,10 +104,10 @@ function PostLyrics() {
 		},
 	]
 
-	const textScale = 0.6
+	const textScale = 0.35
 
 	let x = 0,
-		y = 200
+		y = 220
 
 	lyrics.forEach(({ text, startTime, endTime }, i) => {
 		text.split(' ').forEach((word) => {

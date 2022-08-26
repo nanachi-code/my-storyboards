@@ -1,8 +1,7 @@
-import { createSprite, Layer, Origin, scale, color, fade, additiveBlending } from '@osbjs/tiny-osbjs'
+import { additiveBlending, createSprite, fade, Layer, Origin, scale } from '@osbjs/tiny-osbjs'
 import ColorBg from '../components/ColorBg'
 import FallingLeaves from '../components/FallingLeaves'
 import Flash from '../components/Flash'
-import FlowField from '../components/FlowField'
 import Paricles from '../components/Particles'
 import Pallete from '../utils/pallete'
 
