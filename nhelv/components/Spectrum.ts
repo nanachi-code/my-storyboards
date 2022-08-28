@@ -42,8 +42,8 @@ function useDefaultOptionsIfEmpty(options?: SpectrumOptions) {
 		spriteHeight: 1,
 		spriteWidth: 1,
 		barCount: 32,
-		barWidth: 20,
-		maxBarHeight: 200,
+		barWidth: 2,
+		maxBarHeight: 60,
 		barColor: DefaultPallete.LightsteelBlue,
 		gap: 3,
 		opacity: 1,
@@ -65,12 +65,13 @@ export default function Spectrum(startTime: number, endTime: number, schemaPath:
 	const { barCount, barWidth, maxBarHeight, gap, barColor, opacity, spriteWidth, spriteHeight } = useDefaultOptionsIfEmpty(options)
 	const timestep = 1000 / fps
 
-	let x = 320 - (barWidth * barCount + gap * (barCount - 1)) / 2
+	let x = 480,
+		y = 390
 
 	for (let i = 0; i < barCount; i++) {
 		const barFrames = spectrumFrames.map((frame) => frame[i])
 
-		createSprite(spritePath, Layer.Background, Origin.Centre, [x, 240], () => {
+		createSprite(spritePath, Layer.Background, Origin.BottomCentre, [x, y], () => {
 			fade(startTime, opacity)
 			color(startTime, barColor)
 			additiveBlending([startTime, endTime])

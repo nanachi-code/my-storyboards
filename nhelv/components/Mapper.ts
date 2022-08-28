@@ -18,12 +18,12 @@ function Mapper() {
 		},
 	]
 
-	const x = 550,
+	const x = 480,
 		y = 420,
 		_scale = 0.5
 
 	mappers.forEach(({ name, startTime, endTime }) => {
-		createOutlineText(name, Layer.Background, Origin.Centre, [x, y + 3], () => {
+		createOutlineText(name, Layer.Background, Origin.CentreLeft, [x, y + 3], () => {
 			scale(startTime, _scale)
 			fade([startTime, startTime + 500], 0, 1)
 			fade([endTime - 500, endTime], 1, 0)
@@ -31,7 +31,7 @@ function Mapper() {
 			color(startTime, DefaultPallete.DeepSkyBlue)
 		})
 
-		createText(name, Layer.Background, Origin.Centre, [x, y], () => {
+		createText(name, Layer.Background, Origin.CentreLeft, [x, y], () => {
 			scale(startTime, _scale)
 			fade([startTime, startTime + 500], 0, 1)
 			fade([endTime - 500, endTime], 1, 0)
